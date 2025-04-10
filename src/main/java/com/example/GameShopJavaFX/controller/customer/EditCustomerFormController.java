@@ -2,7 +2,7 @@ package com.example.GameShopJavaFX.controller.customer;
 
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
-import com.example.GameShopJavaFX.tool.FormLoader;
+import com.example.GameShopJavaFX.tool.loader.customer.EditCustomerFormLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 @Component
 public class EditCustomerFormController implements Initializable {
 
-    private final FormLoader formLoader;
+    private final EditCustomerFormLoader formLoader;
     private final AppCustomerService appCustomerService;
     private Customer editCustomer;
 
@@ -38,7 +38,7 @@ public class EditCustomerFormController implements Initializable {
     @FXML
     private Label infoLabel;
 
-    public EditCustomerFormController(AppCustomerService appCustomerService, FormLoader formLoader) {
+    public EditCustomerFormController(AppCustomerService appCustomerService, EditCustomerFormLoader formLoader) {
         this.appCustomerService = appCustomerService;
         this.formLoader = formLoader;
     }

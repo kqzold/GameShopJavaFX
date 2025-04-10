@@ -2,7 +2,7 @@ package com.example.GameShopJavaFX.controller.customer;
 
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
-import com.example.GameShopJavaFX.tool.FormLoader;
+import com.example.GameShopJavaFX.tool.loader.customer.ProfileFormLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class ProfileFormController implements Initializable {
 
     private final AppCustomerService appCustomerService;
-    private final FormLoader formLoader;
+    private final ProfileFormLoader formLoader;
     private Customer currentCustomer;
 
     @FXML
@@ -22,7 +22,7 @@ public class ProfileFormController implements Initializable {
     @FXML
     private Label lblBalance;
 
-    public ProfileFormController(AppCustomerService appCustomerService, FormLoader formLoader) {
+    public ProfileFormController(AppCustomerService appCustomerService, ProfileFormLoader formLoader) {
         this.appCustomerService = appCustomerService;
         this.formLoader = formLoader;
     }

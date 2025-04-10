@@ -1,5 +1,6 @@
 package com.example.GameShopJavaFX.service;
 
+import com.example.GameShopJavaFX.context.CurrentCustomerContext;
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
 import com.example.GameShopJavaFX.repository.CustomerRepository;
@@ -18,14 +19,12 @@ public class AppCustomerServiceImpl implements AppCustomerService {
 
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CurrentCustomerContext currentCustomerContext;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
-    private Customer currentCustomer;
 
     public enum Role {
         USER,
@@ -33,9 +32,10 @@ public class AppCustomerServiceImpl implements AppCustomerService {
         MANAGER
     }
 
-    public AppCustomerServiceImpl(CustomerRepository customerRepository, PasswordEncoder passwordEncoder) {
+    public AppCustomerServiceImpl(CustomerRepository customerRepository, PasswordEncoder passwordEncoder, CurrentCustomerContext currentCustomerContext) {
         this.customerRepository = customerRepository;
         this.passwordEncoder = passwordEncoder;
+        this.currentCustomerContext = currentCustomerContext;
         initSuperUser();
     }
 
@@ -71,26 +71,34 @@ public class AppCustomerServiceImpl implements AppCustomerService {
     }
 
     @Override
-    public boolean authenticate(String name, String password) {
-        if (name == null || password == null) return false;
+    public boolean authentication(String name, String password) {
+        Optional<Customer> optionalAppUser = customerRepository.findByName(name);
+        if (optionalAppUser.isEmpty()) {
+            return false;
+        }
+        Customer loginUser = optionalAppUser.get();
+        if (!loginUser.getPassword().equals(password)) {
+            return false;
+        }
+        // Устанавливаем текущего пользователя через контекст вместо статического поля
+        currentCustomerContext.setCurrentCustomer(loginUser);
+        return true;
 
-        return customerRepository.findByName(name)
-                .filter(c -> passwordEncoder.matches(password, c.getPassword()))
-                .map(c -> {
-                    currentCustomer = c;
-                    return true;
-                })
-                .orElse(false);
     }
 
-    @Override
-    public ObservableList<Customer> getListCustomers() {
-        List<Customer> customers = customerRepository.findAll();
-        return FXCollections.observableArrayList(customers);
-    }
+        @Override
+        public ObservableList<Customer> getListCustomers() {
+            List<Customer> customers = customerRepository.findAll();
+            return FXCollections.observableArrayList(customers);
+        }
 
-    @Override
-    public Customer getCurrentCustomer() {
-        return currentCustomer;
-    }
+        @Override
+        public Customer getCurrentCustomer () {
+            return currentCustomerContext.getCurrentCustomer();
+        }
+
+        @Override
+        public void logout () {
+            currentCustomerContext.setCurrentCustomer(null);
+        }
 }

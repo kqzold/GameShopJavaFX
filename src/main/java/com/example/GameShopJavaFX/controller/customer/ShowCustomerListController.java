@@ -2,7 +2,7 @@ package com.example.GameShopJavaFX.controller.customer;
 
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
-import com.example.GameShopJavaFX.tool.FormLoader;
+import com.example.GameShopJavaFX.tool.loader.customer.ShowCustomerListFormLoader;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class ShowCustomerListController implements Initializable {
 
-    private final FormLoader formLoader;
+    private final ShowCustomerListFormLoader formLoader;
     private final AppCustomerService appCustomerService;
 
     @FXML
@@ -34,7 +34,7 @@ public class ShowCustomerListController implements Initializable {
     @FXML
     private HBox hbEditCustomer;
 
-    public ShowCustomerListController(AppCustomerService appCustomerService, FormLoader formLoader) {
+    public ShowCustomerListController(AppCustomerService appCustomerService, ShowCustomerListFormLoader formLoader) {
         this.appCustomerService = appCustomerService;
         this.formLoader = formLoader;
     }
@@ -50,6 +50,21 @@ public class ShowCustomerListController implements Initializable {
         customerTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             hbEditCustomer.setVisible(newValue != null);
         });
+    }
+
+    @FXML
+    private void editCustomer() {
+        Customer selectedCustomer = customerTableView.getSelectionModel().getSelectedItem();
+        if (selectedCustomer != null) {
+            formLoader.loadEditCustomerForm(selectedCustomer);
+        } else {
+            System.out.println("No customer selected for editing.");
+        }
+    }
+
+    @FXML
+    private void goToMainForm() {
+        formLoader.loadMainForm();
     }
 
 

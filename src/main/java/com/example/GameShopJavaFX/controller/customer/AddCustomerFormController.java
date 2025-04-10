@@ -2,7 +2,6 @@ package com.example.GameShopJavaFX.controller.customer;
 
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
-import com.example.GameShopJavaFX.tool.FormLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -17,7 +16,6 @@ import java.util.ResourceBundle;
 public class AddCustomerFormController implements Initializable {
 
     private final AppCustomerService appCustomerService;
-    private final FormLoader formLoader;
 
     @FXML private TextField nameField;
     @FXML private TextField emailField;
@@ -29,7 +27,6 @@ public class AddCustomerFormController implements Initializable {
     @FXML private Button cancelButton;
 
     @Autowired
-    public AddCustomerFormController(AppCustomerService appCustomerService, FormLoader formLoader) {
         this.formLoader = formLoader;
         this.appCustomerService = appCustomerService;
     }

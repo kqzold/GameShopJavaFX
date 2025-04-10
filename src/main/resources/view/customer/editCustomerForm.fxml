@@ -15,7 +15,7 @@
 <VBox fx:id="vbCustomerFormRoot" prefHeight="380.0" prefWidth="630.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ee.ivkhkdev.Clothing_StoreJavaFX.controller.customer.EditCustomerFormController"
+      fx:controller="com.example.GameShopJavaFX.controller.customer.EditCustomerFormController"
       alignment="CENTER" spacing="20" styleClass="editcustomer-root">
 
     <!-- Подключаем CSS-файл -->

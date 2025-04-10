@@ -12,7 +12,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ee.ivkhkdev.Clothing_StoreJavaFX.controller.auth.RegistrationFormController"
+      fx:controller="com.example.GameShopJavaFX.controller.auth.RegistrationFormController"
       alignment="CENTER" spacing="15"
       prefWidth="520" prefHeight="293"
       styleClass="register-root">

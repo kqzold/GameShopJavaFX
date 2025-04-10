@@ -10,7 +10,7 @@
 <?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ee.ivkhkdev.Clothing_StoreJavaFX.controller.customer.ShowCustomerListController"
+      fx:controller="com.example.GameShopJavaFX.controller.customer.ShowCustomerListController"
       fx:id="vbShowCustomerRoot"
       alignment="CENTER"
       spacing="10"

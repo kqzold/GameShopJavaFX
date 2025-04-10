@@ -13,7 +13,7 @@
 
 <VBox xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ee.ivkhkdev.Clothing_StoreJavaFX.controller.customer.ProfileFormController"
+      fx:controller="com.example.GameShopJavaFX.controller.customer.ProfileFormController"
       alignment="CENTER" spacing="20"
       prefHeight="400.0" prefWidth="600.0"
       styleClass="profile-root">

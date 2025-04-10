@@ -9,9 +9,11 @@ import java.util.Optional;
 @Service
 public interface AppCustomerService {
     void initSuperUser();
-    boolean authenticate(String name, String password);
+    boolean authentication(String name, String password);
     ObservableList<Customer> getListCustomers();
     Customer getCurrentCustomer();
     Optional<Customer> add(Customer customer);
+    void logout();
+
 
 }
