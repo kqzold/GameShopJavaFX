@@ -20,7 +20,8 @@ public class GameShopJavaFxApplication extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-		FormLoader formLoader = applicationContext.getBean(FormLoader.class);
-		formLoader.loadLoginForm();
+		MainFormLoader mainFormLoader = applicationContext.getBean(MainFormLoader.class);
+		mainFormLoader.loadLoginForm();
+
 	}
 }
