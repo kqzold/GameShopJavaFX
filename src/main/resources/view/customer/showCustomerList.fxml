@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ee.ivkhkdev.Clothing_StoreJavaFX.controller.customer.ShowCustomerListController"
+      fx:id="vbShowCustomerRoot"
+      alignment="CENTER"
+      spacing="10"
+      prefHeight="400.0"
+      prefWidth="600.0"
+      styleClass="showcustomer-root">
+
+    <!-- Подключаем CSS-файл -->
+    <stylesheets>
+        <URL value="@../css/showCustomer.css"/>
+    </stylesheets>
+
+    <children>
+        <!-- Таблица со списком покупателей -->
+        <TableView fx:id="tvCustomerList" prefHeight="350.0" prefWidth="600.0" styleClass="showcustomer-table">
+            <columns>
+                <TableColumn fx:id="tcId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="tcUsername" text="Логин" prefWidth="150"/>
+                <TableColumn fx:id="tcFirstName" text="Имя" prefWidth="150"/>
+                <TableColumn fx:id="tcLastName" text="Фамилия" prefWidth="150"/>
+                <TableColumn fx:id="tcBalance" text="Баланс" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <!-- Общий контейнер для кнопок (одна линия) -->
+        <HBox spacing="10" alignment="CENTER" styleClass="showcustomer-buttonbox">
+            <!-- Вложенный HBox для кнопки редактирования, скрыт по умолчанию -->
+            <HBox fx:id="hbEditCustomer" alignment="CENTER" spacing="10" visible="false" styleClass="showcustomer-editbox">
+                <children>
+                    <Button text="Редактировать покупателя" onAction="#editCustomer" styleClass="showcustomer-button"/>
+                </children>
+            </HBox>
+
+            <!-- Кнопка "Возврат на главную" -->
+            <Button text="Возврат на главную" onAction="#goToMainForm" styleClass="showcustomer-button"/>
+        </HBox>
+    </children>
+
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+</VBox>

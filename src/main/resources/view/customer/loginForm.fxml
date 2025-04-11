@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ee.ivkhkdev.Clothing_StoreJavaFX.controller.auth.LoginFormController"
+      alignment="CENTER" spacing="15" styleClass="login-root"
+      prefWidth="550" prefHeight="300">
+
+
+    <stylesheets>
+        <URL value="@../css/login.css"/>
+    </stylesheets>
+
+    <!-- Заголовок -->
+    <Label text="Введите логин и пароль" styleClass="login-title">
+        <font>
+            <Font size="22.0" />
+        </font>
+    </Label>
+
+    <!-- Информационное сообщение (например, об ошибке входа) -->
+    <Label fx:id="lbInfo" styleClass="login-info">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+
+    <!-- Контейнер для полей ввода и кнопки входа -->
+    <GridPane alignment="CENTER" hgap="10" vgap="10" styleClass="login-form-box">
+        <children>
+            <!-- Логин -->
+            <Label text="Логин" styleClass="login-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <TextField fx:id="tfUsername" styleClass="login-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+            <!-- Пароль -->
+            <Label text="Пароль" styleClass="login-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <PasswordField fx:id="pfPassword" styleClass="login-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+            <!-- Кнопка "Войти" -->
+            <Button text="Войти" onAction="#login" styleClass="login-button"
+                    GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        </children>
+        <padding>
+            <Insets top="15" bottom="15" left="15" right="15"/>
+        </padding>
+    </GridPane>
+
+    <!-- Ссылка на регистрацию -->
+    <Label text="Нет логина? Зарегистрируйся!"
+           onMouseClicked="#showRegistrationForm"
+           styleClass="login-reg-link" />
+
+    <padding>
+        <Insets top="20" bottom="20" left="20" right="20"/>
+    </padding>
+</VBox>
