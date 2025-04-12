@@ -1,0 +1,62 @@
+/* revenue.css */
+
+/* Корневой контейнер: задаёт плавный градиентный фон и отступы */
+.revenue-root {
+    -fx-background-color: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    -fx-padding: 20;
+}
+
+/* Заголовок формы: стиль для заголовка "Доход магазина" */
+.revenue-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* Радиокнопки для выбора периода: увеличенный шрифт и темный цвет текста */
+.revenue-radio {
+    -fx-font-size: 16px;
+    -fx-text-fill: #34495e;
+}
+
+/* Метка для подписи поля ввода периода */
+.revenue-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Поле ввода: светлый фон, закругленные углы, отступы и рамка */
+.revenue-field {
+    -fx-font-size: 14px;
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 5 10 5 10;
+}
+
+/* Кнопки: насыщенный синий фон, белый текст, закругленные углы и легкая тень */
+.revenue-button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-padding: 8 16 8 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 0, 2);
+}
+
+/* Эффект при наведении на кнопку */
+.revenue-button:hover {
+    -fx-background-color: #1c6692;
+}
+
+/* Результат расчёта дохода: крупный, зелёный текст */
+.revenue-result {
+    -fx-font-size: 18px;
+    -fx-text-fill: #27ae60;
+    -fx-font-weight: bold;
+}

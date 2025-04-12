@@ -1,0 +1,57 @@
+/* Корневой контейнер */
+.editcustomer-root {
+    -fx-background-color: linear-gradient(to bottom, #f9fafc, #d9e2ed);
+    -fx-padding: 20;
+}
+
+/* Заголовок формы */
+.editcustomer-title {
+    -fx-text-fill: #333;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+/* GridPane для полей ввода */
+.editcustomer-grid {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
+    -fx-padding: 15;
+}
+
+/* Метки для полей ввода */
+.editcustomer-label {
+    -fx-text-fill: #555;
+    -fx-font-size: 14px;
+}
+
+/* Поля ввода */
+.editcustomer-field {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 6 8 6 8;
+}
+
+/* Кнопки */
+.editcustomer-button {
+    -fx-background-color: #457b9d;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 10 6 10;
+    -fx-min-width: 80px;
+}
+
+.editcustomer-button:hover {
+    -fx-background-color: #1d3557;
+}
+
+/* Блок с кнопками */
+.editcustomer-buttons {
+    -fx-padding: 10;
+    -fx-alignment: CENTER;
+}

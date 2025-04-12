@@ -1,0 +1,54 @@
+/* Корневой контейнер */
+.addclothing-root {
+    -fx-background-color: linear-gradient(to bottom, #f9fafc, #e1e8ed);
+    -fx-padding: 20;
+}
+
+/* Заголовок формы */
+.addclothing-title {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+/* Стили для GridPane */
+.addclothing-grid {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
+    -fx-padding: 15;
+}
+
+/* Метки для полей */
+.addclothing-label {
+    -fx-text-fill: #555;
+    -fx-font-size: 14px;
+}
+
+/* Поля ввода */
+.addclothing-field {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 4 8 4 8;
+}
+
+/* Кнопки */
+.addclothing-button {
+    -fx-background-color: #457b9d;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20 8 20;
+}
+
+.addclothing-button:hover {
+    -fx-background-color: #1d3557;
+}
+
+/* Блок кнопок */
+.addclothing-buttons {
+    -fx-padding: 10;
+}

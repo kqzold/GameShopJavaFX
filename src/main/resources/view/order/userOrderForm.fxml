@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.GameShopJavaFX.controller.order.UserOrderFormController"
+      alignment="CENTER" spacing="20"
+      prefHeight="400.0" prefWidth="600.0"
+      styleClass="order-root">
+
+    <stylesheets>
+        <URL value="@../css/order.css"/>
+    </stylesheets>
+
+    <!-- Заголовок окна -->
+    <Label text="Оформление заказа" styleClass="order-title"/>
+
+    <!-- Контейнер для отображения информации о выбранном товаре и ввода заказа -->
+    <GridPane hgap="15" vgap="15" alignment="CENTER" styleClass="order-grid">
+        <padding>
+            <Insets top="10" right="20" bottom="10" left="20"/>
+        </padding>
+
+        <!-- Информация о товаре -->
+        <Label text="Товар:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="order-label"/>
+        <Label fx:id="lblProductInfo" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="order-value"/>
+
+        <!-- Ввод количества -->
+        <Label text="Количество:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="order-label"/>
+        <TextField fx:id="tfQuantity" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="order-field"/>
+
+        <!-- Итоговая сумма -->
+        <Label text="Итого:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="order-label"/>
+        <Label fx:id="lblTotal" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="order-value"/>
+
+        <!-- Сообщение об ошибке или успехе -->
+        <Label fx:id="lblError" textFill="red" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" styleClass="order-error"/>
+    </GridPane>
+
+    <!-- Блок с кнопками -->
+    <HBox spacing="20" alignment="CENTER" styleClass="order-buttons">
+        <Button text="Оформить заказ" onAction="#placeOrder" styleClass="order-button"/>
+        <Button text="Отмена" onAction="#cancel" styleClass="order-button"/>
+    </HBox>
+
+</VBox>

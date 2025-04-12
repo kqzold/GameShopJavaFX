@@ -1,0 +1,64 @@
+/* login.css: пример простых стилей для формы логина */
+
+/* Корневой контейнер (VBox) */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom, #f0f4f7, #d9e2ec);
+    -fx-padding: 20;
+    -fx-spacing: 10;
+}
+
+/* Заголовок */
+.login-title {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+/* Текст ошибок или уведомлений */
+.login-info {
+    -fx-text-fill: #e63946;  /* Красный цвет */
+}
+
+/* Фон формы (GridPane) */
+.login-form-box {
+    -fx-background-color: #fff;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+/* Подписи (Label) рядом с полями ввода */
+.login-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
+}
+
+/* Поля ввода */
+.login-field {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 4 8 4 8;
+}
+
+/* Кнопка "Войти" */
+.login-button {
+    -fx-background-color: #457b9d;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 20 6 20;
+}
+
+.login-button:hover {
+    -fx-background-color: #1d3557;
+}
+
+/* Ссылка "Нет логина? Зарегистрируйся!" */
+.login-reg-link {
+    -fx-text-fill: #1d3557;
+    -fx-underline: true;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}

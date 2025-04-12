@@ -32,7 +32,7 @@
         </padding>
         <!-- Логин -->
         <Label text="Логин:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="profile-label"/>
-        <Label fx:id="lblUsername" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="profile-value"/>
+        <Label fx:id="lblName" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="profile-value"/>
         <!-- Баланс -->
         <Label text="Баланс:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="profile-label"/>
         <Label fx:id="lblBalance" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="profile-value"/>

@@ -36,21 +36,21 @@
             <Insets top="10" right="20" bottom="10" left="20"/>
         </padding>
 
-        <!-- Имя -->
-        <Label text="Имя:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
-        <TextField fx:id="tfFirstName" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
-        <!-- Фамилия -->
-        <Label text="Фамилия:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
-        <TextField fx:id="tfLastName" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
         <!-- Логин -->
-        <Label text="Логин:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
-        <TextField fx:id="tfUsername" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
+        <Label text="Логин:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
+        <TextField fx:id="tfnameField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
         <!-- Пароль -->
-        <Label text="Пароль:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
-        <PasswordField fx:id="pfPassword" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
+        <Label text="Пароль:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
+        <PasswordField fx:id="tfpasswordField" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
         <!-- Баланс -->
-        <Label text="Баланс:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
-        <TextField fx:id="tfBalance" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
+        <Label text="Баланс:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
+        <TextField fx:id="tfbalanceField" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
+        <!-- Имя -->
+        <Label text="Почта:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
+        <TextField fx:id="tfemailField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
+        <!-- Фамилия -->
+        <Label text="Адрес:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="editcustomer-label"/>
+        <TextField fx:id="tfaddressField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="editcustomer-field"/>
     </GridPane>
 
     <!-- Блок с кнопками -->

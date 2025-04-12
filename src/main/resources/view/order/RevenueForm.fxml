@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.GameShopJavaFX.controller.order.RevenueFormController"
+      alignment="CENTER" spacing="20" prefHeight="400.0" prefWidth="600.0"
+      styleClass="revenue-root">
+
+    <stylesheets>
+        <URL value="@../css/revenue.css"/>
+    </stylesheets>
+
+    <!-- Заголовок окна -->
+    <Label text="Доход магазина" styleClass="revenue-title">
+        <font>
+            <Font size="22.0"/>
+        </font>
+    </Label>
+
+    <!-- Радиокнопки для выбора: За день, За месяц, За год -->
+    <HBox spacing="15" alignment="CENTER">
+        <RadioButton fx:id="dayRadioButton" text="За день"/>
+        <RadioButton fx:id="monthRadioButton" text="За месяц"/>
+        <RadioButton fx:id="yearRadioButton" text="За год"/>
+    </HBox>
+
+    <!-- Контейнер, в котором будут отображаться ComboBox в зависимости от выбранного периода -->
+    <StackPane fx:id="spPeriodContainer" alignment="CENTER">
+
+        <!-- Для дня (1..31) -->
+        <HBox fx:id="hBoxDay" spacing="10" alignment="CENTER">
+            <Label text="День:"/>
+            <ComboBox fx:id="cbDay" promptText="Выберите день"/>
+        </HBox>
+
+        <!-- Для месяца: месяц (1..12) + год -->
+        <HBox fx:id="hBoxMonth" spacing="10" alignment="CENTER" visible="false">
+            <Label text="Месяц:"/>
+            <ComboBox fx:id="cbMonth" promptText="1..12"/>
+
+            <Label text="Год:"/>
+            <ComboBox fx:id="cbYearMonth" promptText="2023..2025"/>
+        </HBox>
+
+        <!-- Для года (2023..2025) -->
+        <HBox fx:id="hBoxYear" spacing="10" alignment="CENTER" visible="false">
+            <Label text="Год:"/>
+            <ComboBox fx:id="cbYear" promptText="2023..2025"/>
+        </HBox>
+    </StackPane>
+
+    <!-- Кнопка для расчёта дохода -->
+    <Button text="Показать доход" onAction="#calculateRevenue" styleClass="revenue-button"/>
+
+    <!-- Метка для отображения результата -->
+    <Label fx:id="lblRevenue" styleClass="revenue-result"/>
+
+    <!-- Кнопка возврата -->
+    <Button text="Назад" onAction="#cancel" styleClass="revenue-button"/>
+</VBox>

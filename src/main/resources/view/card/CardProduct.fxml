@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.net.URL?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.GameShopJavaFX.controller.card.CardClothingController"
+      alignment="CENTER" spacing="8"
+      styleClass="product-card-root"
+      prefWidth="200.0" prefHeight="250.0">
+
+    <stylesheets>
+        <URL value="@../css/cardProduct.css"/>
+    </stylesheets>
+
+    <!-- Картинка товара -->
+    <ImageView fx:id="imgProduct" fitWidth="180.0" preserveRatio="true"/>
+
+    <!-- Название товара -->
+    <Label fx:id="lblName" styleClass="product-card-name"/>
+
+    <!-- Дополнительная информация -->
+    <Label fx:id="lblCategory" styleClass="product-card-info"/>
+    <Label fx:id="lblPrice" styleClass="product-card-info"/>
+    <Label fx:id="lblInStock" styleClass="product-card-info"/>
+
+    <!-- Кнопка "Купить" -->
+    <Button fx:id="btnBuy" text="Купить" onAction="#buyClothing" styleClass="product-card-button"/>
+</VBox>

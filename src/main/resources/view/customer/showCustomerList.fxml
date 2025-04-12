@@ -25,13 +25,11 @@
 
     <children>
         <!-- Таблица со списком покупателей -->
-        <TableView fx:id="tvCustomerList" prefHeight="350.0" prefWidth="600.0" styleClass="showcustomer-table">
+        <TableView fx:id="customerTableView" prefHeight="350.0" prefWidth="600.0" styleClass="showcustomer-table">
             <columns>
-                <TableColumn fx:id="tcId" text="ID" prefWidth="50"/>
-                <TableColumn fx:id="tcUsername" text="Логин" prefWidth="150"/>
-                <TableColumn fx:id="tcFirstName" text="Имя" prefWidth="150"/>
-                <TableColumn fx:id="tcLastName" text="Фамилия" prefWidth="150"/>
-                <TableColumn fx:id="tcBalance" text="Баланс" prefWidth="100"/>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="nameColumn" text="Логин" prefWidth="150"/>
+                <TableColumn fx:id="balanceColumn" text="Баланс" prefWidth="100"/>
             </columns>
         </TableView>
 

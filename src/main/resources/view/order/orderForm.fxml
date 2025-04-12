@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.net.URL?>
+
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.GameShopJavaFX.controller.order.OrderFormController"
+      alignment="CENTER" spacing="20"
+      prefHeight="400.0" prefWidth="900.0"
+      styleClass="order-root">
+
+    <stylesheets>
+        <URL value="@../css/order.css"/>
+    </stylesheets>
+
+    <!-- Заголовок формы -->
+    <Label text="Оформление заказа" styleClass="order-title"/>
+
+    <!-- Основной контейнер для выбора покупателя, товара и количества -->
+    <GridPane hgap="15" vgap="15" alignment="CENTER" styleClass="order-grid">
+        <padding>
+            <Insets top="10" right="20" bottom="10" left="20"/>
+        </padding>
+        <!-- Выбор покупателя -->
+        <Label text="Покупатель:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="order-label"/>
+        <ComboBox fx:id="customerComboBox" promptText="Выберите покупателя" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="order-field"/>
+
+        <!-- Выбор товара -->
+        <Label text="Товар:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="order-label"/>
+        <ComboBox fx:id="productComboBox" promptText="Выберите товар" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="order-field"/>
+
+        <!-- Ввод количества товара -->
+        <Label text="Количество:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="order-label"/>
+        <TextField fx:id="quantityTextField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="order-field"/>
+
+        <!-- Итоговая стоимость -->
+        <Label text="Итого:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="order-label"/>
+        <Label fx:id="totalPriceLabel" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="order-value"/>
+
+        <!-- Отладочное сообщение (ошибка/информация) -->
+        <Label fx:id="errorLabel" textFill="red" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2" styleClass="order-error"/>
+    </GridPane>
+
+    <!-- Контейнер с кнопками -->
+    <HBox spacing="20" alignment="CENTER" styleClass="order-buttons">
+        <Button text="Оформить заказ" onAction="#placeOrder" styleClass="order-button"/>
+        <Button text="Отмена" onAction="#goToMainForm" styleClass="order-button"/>
+    </HBox>
+
+    <padding>
+        <Insets top="20" right="30" bottom="30" left="30"/>
+    </padding>
+</VBox>

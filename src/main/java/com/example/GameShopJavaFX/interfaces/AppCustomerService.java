@@ -4,15 +4,13 @@ import com.example.GameShopJavaFX.model.Customer;
 import javafx.collections.ObservableList;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
-public interface AppCustomerService {
+public interface AppCustomerService extends AppService<Customer> {
     void initSuperUser();
     boolean authentication(String name, String password);
     ObservableList<Customer> getListCustomers();
     Customer getCurrentCustomer();
-    Optional<Customer> add(Customer customer);
     void logout();
 
 
