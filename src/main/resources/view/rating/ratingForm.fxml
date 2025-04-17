@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.GameShopJavaFX.controller.RatingFormController"
+      alignment="CENTER" spacing="20"
+      prefHeight="500.0" prefWidth="700.0"
+      styleClass="rating-chart-root">
+
+    <stylesheets>
+        <URL value="@../css/ratingChart.css"/>
+    </stylesheets>
+
+    <!-- Заголовок окна -->
+    <Label text="Рейтинг продаваемости товаров" styleClass="rating-chart-title"/>
+
+    <!-- Кнопки для выбора периода -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="За всё время" onAction="#showAllTimeRating" styleClass="rating-chart-button"/>
+        <Button text="За год" onAction="#showYearRating" styleClass="rating-chart-button"/>
+        <Button text="За месяц" onAction="#showMonthRating" styleClass="rating-chart-button"/>
+        <Button text="За неделю" onAction="#showWeekRating" styleClass="rating-chart-button"/>
+    </HBox>
+
+    <!-- Столбчатая диаграмма для рейтинга -->
+    <BarChart fx:id="barChartRating" prefHeight="350.0" prefWidth="650.0">
+        <xAxis>
+            <CategoryAxis fx:id="xAxis" label="Товар"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" label="Продано"/>
+        </yAxis>
+    </BarChart>
+
+
+    <!-- Кнопка возврата -->
+    <Button text="Назад" onAction="#cancel" styleClass="rating-chart-button"/>
+</VBox>

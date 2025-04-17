@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbMainFormRoot" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10" styleClass="main-root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GameShopJavaFX.controller.MainFormController">
+
+
+    <stylesheets>
+        <URL value="@../css/main.css" />
+    </stylesheets>
+
+    <children>
+        <!-- Таблица со списком одежды -->
+        <TableView fx:id="tvClothingList" prefHeight="400.0" prefWidth="600.0" styleClass="main-table">
+            <columns>
+                <TableColumn fx:id="tcId" prefWidth="40.0" text="ID" />
+                <TableColumn fx:id="tcName" prefWidth="97.0" text="Название" />
+                <TableColumn fx:id="tcQuantity" prefWidth="69.0" text="Всего" />
+                <TableColumn fx:id="tcPrice" prefWidth="96.0" text="Цена" />
+
+            </columns>
+        </TableView>
+
+        <!-- Блок с кнопкой "Редактировать модель" -->
+        <HBox fx:id="hbEditClothing" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="600.0" styleClass="main-edit-box" visible="false">
+            <children>
+                <Button mnemonicParsing="false" onAction="#showEditClothingForm" styleClass="main-edit-button" text="Редактировать модель" />
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>

@@ -45,7 +45,7 @@ public class CustomerFormLoader {
     }
 
     public void loadCustomerListForm() {
-        FXMLLoader fxmlLoader = springFXMLLoader.load("/view/customer/customerListForm.fxml");
+        FXMLLoader fxmlLoader = springFXMLLoader.load("/view/customer/showCustomerList.fxml");
         Parent root;
 
         try {
@@ -68,7 +68,7 @@ public class CustomerFormLoader {
         try {
             root = fxmlLoader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Не удалось загрузить /view/customer/EditCustomerForm.fxml", e);
+            throw new RuntimeException("Не удалось загрузить /view/customer/editCustomerForm.fxml", e);
         }
 
         EditCustomerFormController controller = fxmlLoader.getController();
@@ -88,7 +88,7 @@ public class CustomerFormLoader {
         try {
             root = fxmlLoader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Не удалось загрузить /view/customer/ProfileForm.fxml", e);
+            throw new RuntimeException("Не удалось загрузить /view/customer/profileForm.fxml", e);
         }
 
         ProfileFormController controller = fxmlLoader.getController();

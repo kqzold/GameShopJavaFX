@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vbMenuFormRoot" prefHeight="23.0" prefWidth="599.0" styleClass="menu-root"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.GameShopJavaFX.controller.MenuFormController">
+
+    <stylesheets>
+        <URL value="@../css/menu.css" />
+    </stylesheets>
+
+    <children>
+        <MenuBar prefHeight="0.0" prefWidth="579.0" styleClass="menu-bar">
+            <menus>
+                <Menu fx:id="mClothing" mnemonicParsing="false" styleClass="menu-item" text="Товары">
+                    <items>
+                        <MenuItem fx:id="miAddClothing"
+                                  mnemonicParsing="false"
+                                  onAction="#showAddClothingForm"
+                                  styleClass="menu-item-sub"
+                                  text="Добавить одежду" />
+                        <MenuItem fx:id="miAddBrand"
+                                  mnemonicParsing="false"
+                                  onAction="#showAddBrandForm"
+                                  styleClass="menu-item-sub"
+                                  text="Добавить бренд" />
+                        <MenuItem fx:id="miListClothing"
+                                  mnemonicParsing="false"
+                                  styleClass="menu-item-sub"
+                                  text="Список одежды" />
+                    </items>
+                </Menu>
+                <Menu fx:id="mUsers" mnemonicParsing="false" styleClass="menu-item" text="Покупатель">
+                    <items>
+                        <MenuItem fx:id="miEnter" mnemonicParsing="false" onAction="#showLoginForm" styleClass="menu-item-sub" text="Вход" />
+                        <MenuItem fx:id="miLogout" mnemonicParsing="false" onAction="#logout" styleClass="menu-item-sub" text="Выход" />
+                        <MenuItem fx:id="miProfile" mnemonicParsing="false" onAction="#showProfileForm" styleClass="menu-item-sub" text="Профиль" />
+                        <MenuItem fx:id="miAddCustomer"
+                                  mnemonicParsing="false"
+                                  onAction="#showAddCustomerForm"
+                                  styleClass="menu-item-sub"
+                                  text="Добавить покупателя" />
+                        <MenuItem fx:id="miShowCustomerList"
+                                  mnemonicParsing="false"
+                                  onAction="#showCustomersForm"
+                                  styleClass="menu-item-sub"
+                                  text="Список покупателей" />
+                        <MenuItem fx:id="miPlaceOrder"
+                                  mnemonicParsing="false"
+                                  onAction="#showOrderForm"
+                                  styleClass="menu-item-sub"
+                                  text="Оформить заказ" />
+                        <MenuItem fx:id="mishowCatalogForm"
+                                  mnemonicParsing="false"
+                                  onAction="#showCatalogForm"
+                                  styleClass="menu-item-sub"
+                                  text="Каталог" />
+
+                    </items>
+                </Menu>
+                <Menu fx:id="mAdmin" mnemonicParsing="false" styleClass="menu-item" text="Administrator">
+                    <items>
+                        <MenuItem text="Доход магазина" onAction="#showRevenueForm" styleClass="menu-item-sub"/>
+
+                        <MenuItem text="Рейтинг товара" onAction="#showRatingForm" styleClass="menu-item-sub"/>
+                    </items>
+                </Menu>
+
+            </menus>
+        </MenuBar>
+    </children>
+</VBox>

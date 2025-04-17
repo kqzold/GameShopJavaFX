@@ -1,5 +1,6 @@
 package com.example.GameShopJavaFX;
 
+import com.example.GameShopJavaFX.tool.loader.main.MainFormLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;

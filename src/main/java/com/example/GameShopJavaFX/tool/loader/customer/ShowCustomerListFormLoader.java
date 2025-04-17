@@ -29,7 +29,7 @@ public class ShowCustomerListFormLoader {
     }
 
     public void loadEditCustomerForm(Customer customer) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/GameShopJavaFX/view/customer/EditCustomerForm.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/GameShopJavaFX/view/customer/editCustomerForm.fxml"));
             Parent root;
             try {
                 root = fxmlLoader.load();

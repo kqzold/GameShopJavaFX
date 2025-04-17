@@ -1,8 +1,6 @@
-package com.example.GameShopJavaFX.tool.loader.card;
+package com.example.GameShopJavaFX.tool.loader.auth;
 
 import com.example.GameShopJavaFX.GameShopJavaFxApplication;
-import com.example.GameShopJavaFX.controller.order.UserOrderFormController;
-import com.example.GameShopJavaFX.model.Product;
 import com.example.GameShopJavaFX.tool.SpringFXMLLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,11 +11,11 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class CardProductFormLoader {
+public class RegistrationFormLoader {
 
     private final SpringFXMLLoader springFXMLLoader;
 
-    public CardProductFormLoader(SpringFXMLLoader springFXMLLoader) {
+    public RegistrationFormLoader(SpringFXMLLoader springFXMLLoader) {
         this.springFXMLLoader = springFXMLLoader;
     }
 
@@ -25,22 +23,18 @@ public class CardProductFormLoader {
         return GameShopJavaFxApplication.primaryStage;
     }
 
-    public void loadUserOrderForm(Product product) {
-        FXMLLoader fxmlLoader = springFXMLLoader.load("/view/card/CardProduct.fxml");
+    public void loadLoginForm() {
+        FXMLLoader fxmlLoader = springFXMLLoader.load("/view/customer/loginForm.fxml");
         Parent root;
         try {
             root = fxmlLoader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Не удалось загрузить форму заказа", e);
+            throw new RuntimeException("Не удалось загрузить форму входа", e);
         }
-
-        UserOrderFormController controller = fxmlLoader.getController();
-        controller.setSelectedProduct(product);
-
         Scene scene = new Scene(root);
         Stage primaryStage = getPrimaryStage();
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Game Shop - Заказ товара");
+        primaryStage.setTitle("Game Shop - Вход");
         primaryStage.centerOnScreen();
         primaryStage.show();
     }

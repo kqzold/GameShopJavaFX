@@ -2,6 +2,7 @@ package com.example.GameShopJavaFX.controller.card;
 
 import com.example.GameShopJavaFX.model.Product;
 import com.example.GameShopJavaFX.tool.loader.card.CardProductFormLoader;
+import com.example.GameShopJavaFX.tool.loader.catalog.CatalogFormLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,7 +30,7 @@ public class CardProductController {
     private Button btnBuy;
 
     private Product product;
-    private final CardProductFormLoader cardProductFormLoader;
+    private CardProductFormLoader cardProductFormLoader;
 
     public void setProduct(Product product) {
         this.product = product;
@@ -39,14 +40,14 @@ public class CardProductController {
         lblQuantity.setText(String.valueOf(product.getQuantity()));
     }
 
-    public void setFormLoader(CatalogFormLoader catalogFormLoader) {
-        this.cardProductFormLoader = catalogFormLoader;
+    public void setFormLoader(CatalogFormLoader  catalogFormLoader ) {
+        this.cardProductFormLoader = cardProductFormLoader;
     }
 
     @FXML
     private void buyProduct() {
         if (cardProductFormLoader != null) {
-            cardProductFormLoader.loadProductForm(product);
+            cardProductFormLoader.loadUserOrderForm(product);
         } else {
             System.out.println("CardProductFormLoader is not set.");
         }

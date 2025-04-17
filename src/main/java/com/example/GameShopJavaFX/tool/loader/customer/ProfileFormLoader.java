@@ -1,6 +1,7 @@
 package com.example.GameShopJavaFX.tool.loader.customer;
 
 import com.example.GameShopJavaFX.GameShopJavaFxApplication;
+import com.example.GameShopJavaFX.controller.profile.ChangePasswordFormController;
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
 import com.example.GameShopJavaFX.tool.SpringFXMLLoader;

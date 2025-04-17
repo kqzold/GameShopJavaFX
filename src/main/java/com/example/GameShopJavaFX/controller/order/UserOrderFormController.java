@@ -6,12 +6,14 @@ import com.example.GameShopJavaFX.interfaces.ProductService;
 import com.example.GameShopJavaFX.model.Customer;
 import com.example.GameShopJavaFX.model.Order;
 import com.example.GameShopJavaFX.model.Product;
+import com.example.GameShopJavaFX.tool.loader.catalog.CatalogFormLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -55,11 +57,13 @@ public class UserOrderFormController implements Initializable {
     public void setSelectedProduct(Product product) {
         this.selectedProduct = product;
         if (product != null) {
-            lblProductInfo.setText("Product: " + product.getName() + "\nPrice: " + product.getPrice());
-            lblTotal.setText("Total: " + product.getPrice());
-        } else {
-            lblProductInfo.setText("No product selected");
-            lblTotal.setText("Total: 0.0");
+            lblProductInfo.setText(
+                    product.getName() + ", " +
+                            "Название: " + product.getName() + ", " +
+                            "Категория: " + product.getCategory() + ", " +
+                            "Цена: " + product.getPrice() + ", " +
+                            "Кол-во: " + product.getQuantity()
+            );
         }
     }
 
@@ -68,14 +72,16 @@ public class UserOrderFormController implements Initializable {
         try {
             quantity = Integer.parseInt(tfQuantity.getText().trim());
         } catch (NumberFormatException e) {
+            // Если ввод некорректный, оставляем количество равным 0
         }
         if (selectedProduct != null) {
-            double totalPrice = selectedProduct.getPrice() * quantity;
-            lblTotal.setText(String.format("Total: %.2f", totalPrice));
+            double total = selectedProduct.getPrice().multiply(BigDecimal.valueOf(quantity)).doubleValue();
+            lblTotal.setText(String.format("%.2f", total));
         } else {
-            lblError.setText("0.00");
+            lblTotal.setText("0.00");
         }
     }
+
 
     @FXML
     private void placeOrder() {
@@ -95,7 +101,7 @@ public class UserOrderFormController implements Initializable {
             return;
         }
 
-        double totalCost = selectedProduct.getPrice() * quantity;
+        double totalCost = selectedProduct.getPrice().multiply(BigDecimal.valueOf(quantity)).doubleValue();
         Customer currentCustomer = appCustomerService.getCurrentCustomer();
         if (currentCustomer == null) {
             lblError.setText("Please log in to place an order");

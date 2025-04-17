@@ -23,17 +23,17 @@ public class Order {
 
     private int quantity;
 
-    private BigDecimal totalPrice;
+    private double totalPrice;
 
     private LocalDateTime orderDate;
 
     public Order() {}
 
-    public Order(Customer customer, Product product, int quantity) {
+    public Order(Customer customer, Product product, int quantity, double totalPrice) {
         this.customer = customer;
         this.product = product;
         this.quantity = quantity;
-        this.totalPrice = calculateTotalPrice(product.getPrice(), quantity);  // вычисляем totalPrice автоматически
+        this.totalPrice = totalPrice;
         this.orderDate = LocalDateTime.now();
     }
 
@@ -59,7 +59,7 @@ public class Order {
         return quantity;
     }
 
-    public BigDecimal getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
@@ -81,12 +81,12 @@ public class Order {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        this.totalPrice = calculateTotalPrice(product.getPrice(), quantity);  // обновляем totalPrice при изменении quantity
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
 
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;

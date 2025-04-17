@@ -6,20 +6,21 @@ import com.example.GameShopJavaFX.interfaces.ProductService;
 import com.example.GameShopJavaFX.model.Customer;
 import com.example.GameShopJavaFX.model.Order;
 import com.example.GameShopJavaFX.model.Product;
+import com.example.GameShopJavaFX.tool.loader.main.MainFormLoader;
 import com.example.GameShopJavaFX.tool.loader.order.OrderFormLoader;
-import jakarta.annotation.Resource;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
-@Override
+@Component
 public class OrderFormController implements Initializable {
 
     private final OrderService orderService;
@@ -65,19 +66,23 @@ public class OrderFormController implements Initializable {
 
     private void recalcTotal() {
         Product selected = productComboBox.getSelectionModel().getSelectedItem();
-        int quantity = 0;
-        try {
-            quantity = Integer.parseInt(quantityTextField.getText());
-        } catch (NumberFormatException e) {
+        String quantityText = quantityTextField.getText().trim();
+
+        if (selected == null) {
+            totalPriceLabel.setText("0.00");
+            errorLabel.setText("Выберите продукт");
+            return;
+        }
+
+        if (!quantityText.matches("\\d+")) {
+            totalPriceLabel.setText("0.00");
             errorLabel.setText("Введите корректное количество");
             return;
         }
-        if (selected != null) {
-            double totalPrice = selected.getPrice() * quantity;
-            totalPriceLabel.setText(String.format("%.2f", totalPrice));
-        } else {
-            errorLabel.setText("0.00");
-        }
+
+        int quantity = Integer.parseInt(quantityText);
+        double totalPrice = selected.getPrice().multiply(BigDecimal.valueOf(quantity)).doubleValue();
+        totalPriceLabel.setText(String.format("%.2f", totalPrice));
     }
 
     @FXML
@@ -104,8 +109,7 @@ public class OrderFormController implements Initializable {
             return;
         }
 
-        double totalCost = selectedProduct.getPrice() * orderQuantity;
-
+        double totalCost = selectedProduct.getPrice().multiply(BigDecimal.valueOf(orderQuantity)).doubleValue();
         if(selectedCustomer.getBalance() < totalCost) {
             errorLabel.setText("Недостаточно средств на счете клиента");
             return;
