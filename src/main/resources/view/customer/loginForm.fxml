@@ -29,7 +29,7 @@
     </Label>
 
     <!-- Информационное сообщение (например, об ошибке входа) -->
-    <Label fx:id="lbInfo" styleClass="login-info">
+    <Label fx:id="infoLabel" styleClass="login-info">
         <font>
             <Font size="14.0" />
         </font>
@@ -40,11 +40,11 @@
         <children>
             <!-- Логин -->
             <Label text="Логин" styleClass="login-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-            <TextField fx:id="tfUsername" styleClass="login-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+            <TextField fx:id="tfName" styleClass="login-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
 
             <!-- Пароль -->
             <Label text="Пароль" styleClass="login-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
-            <PasswordField fx:id="pfPassword" styleClass="login-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <PasswordField fx:id="tfPassword" styleClass="login-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
 
             <!-- Кнопка "Войти" -->
             <Button text="Войти" onAction="#login" styleClass="login-button"

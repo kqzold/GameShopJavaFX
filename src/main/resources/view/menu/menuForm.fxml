@@ -7,7 +7,7 @@
 
 <VBox fx:id="vbMenuFormRoot" prefHeight="23.0" prefWidth="599.0" styleClass="menu-root"
       xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.GameShopJavaFX.controller.MenuFormController">
+      fx:controller="com.example.GameShopJavaFX.controller.main.MenuFormController">
 
     <stylesheets>
         <URL value="@../css/menu.css" />
@@ -16,19 +16,14 @@
     <children>
         <MenuBar prefHeight="0.0" prefWidth="579.0" styleClass="menu-bar">
             <menus>
-                <Menu fx:id="mClothing" mnemonicParsing="false" styleClass="menu-item" text="Товары">
+                <Menu fx:id="mProduct" mnemonicParsing="false" styleClass="menu-item" text="Товары">
                     <items>
-                        <MenuItem fx:id="miAddClothing"
+                        <MenuItem fx:id="miAddProduct"
                                   mnemonicParsing="false"
-                                  onAction="#showAddClothingForm"
+                                  onAction="#showAddProductForm"
                                   styleClass="menu-item-sub"
                                   text="Добавить одежду" />
-                        <MenuItem fx:id="miAddBrand"
-                                  mnemonicParsing="false"
-                                  onAction="#showAddBrandForm"
-                                  styleClass="menu-item-sub"
-                                  text="Добавить бренд" />
-                        <MenuItem fx:id="miListClothing"
+                        <MenuItem fx:id="miShowProductList"
                                   mnemonicParsing="false"
                                   styleClass="menu-item-sub"
                                   text="Список одежды" />

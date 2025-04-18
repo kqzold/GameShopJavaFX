@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="vbMainFormRoot" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10" styleClass="main-root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GameShopJavaFX.controller.MainFormController">
+<VBox fx:id="mainVBox" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10" styleClass="main-root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.GameShopJavaFX.controller.main.MainFormController">
 
 
     <stylesheets>
@@ -17,7 +17,7 @@
 
     <children>
         <!-- Таблица со списком одежды -->
-        <TableView fx:id="tvClothingList" prefHeight="400.0" prefWidth="600.0" styleClass="main-table">
+        <TableView fx:id="productTableView" prefHeight="400.0" prefWidth="600.0" styleClass="main-table">
             <columns>
                 <TableColumn fx:id="tcId" prefWidth="40.0" text="ID" />
                 <TableColumn fx:id="tcName" prefWidth="97.0" text="Название" />
@@ -28,9 +28,9 @@
         </TableView>
 
         <!-- Блок с кнопкой "Редактировать модель" -->
-        <HBox fx:id="hbEditClothing" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="600.0" styleClass="main-edit-box" visible="false">
+        <HBox fx:id="EditProductHBox" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="600.0" styleClass="main-edit-box" visible="false">
             <children>
-                <Button mnemonicParsing="false" onAction="#showEditClothingForm" styleClass="main-edit-button" text="Редактировать модель" />
+                <Button mnemonicParsing="false" onAction="#showEditProductForm" styleClass="main-edit-button" text="Редактировать модель" />
             </children>
             <padding>
                 <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />

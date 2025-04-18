@@ -132,7 +132,7 @@ public class MenuFormController implements Initializable {
     }
 
     @FXML
-    private void showCustomerForm() {
+    private void showAddCustomerForm() {
         menuFormLoader.showAddCustomerForm();
     }
 

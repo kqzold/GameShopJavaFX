@@ -45,7 +45,7 @@ public class CatalogFormLoader {
         primaryStage.show();
     }
 
-    private void loadProfileForm() {
+    public void loadProfileForm() {
         FXMLLoader fxmlLoader = springFXMLLoader.load("/view/customer/profileForm.fxml");
         Parent root;
         try {

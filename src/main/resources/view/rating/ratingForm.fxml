@@ -10,7 +10,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <VBox xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.GameShopJavaFX.controller.RatingFormController"
+      fx:controller="com.example.GameShopJavaFX.controller.rating.RatingChartController"
       alignment="CENTER" spacing="20"
       prefHeight="500.0" prefWidth="700.0"
       styleClass="rating-chart-root">

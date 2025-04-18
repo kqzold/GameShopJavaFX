@@ -30,26 +30,22 @@
 
 
 
-    <Label fx:id="lbInfo" text="" styleClass="register-info" />
+    <Label fx:id="infoLabel" text="" styleClass="register-info" />
 
     <!-- Основной контейнер для полей (GridPane) -->
     <GridPane alignment="CENTER" hgap="10" vgap="10" styleClass="register-form-box">
         <children>
-            <!-- Имя -->
-            <Label text="Имя" styleClass="register-label" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-            <TextField fx:id="tfFirstname" styleClass="register-field" GridPane.rowIndex="0" GridPane.columnIndex="1" />
-
-            <!-- Фамилия -->
-            <Label text="Фамилия" styleClass="register-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
-            <TextField fx:id="tfLastname" styleClass="register-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
-
             <!-- Логин -->
             <Label text="Логин" styleClass="register-label" GridPane.rowIndex="2" GridPane.columnIndex="0" />
-            <TextField fx:id="tfUsername" styleClass="register-field" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+            <TextField fx:id="tfName" styleClass="register-field" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+            <!-- Email -->
+            <Label text="Почта" styleClass="register-label" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+            <TextField fx:id="tfEmail" styleClass="register-field" GridPane.rowIndex="1" GridPane.columnIndex="1" />
 
             <!-- Пароль -->
             <Label text="Пароль" styleClass="register-label" GridPane.rowIndex="3" GridPane.columnIndex="0" />
-            <PasswordField fx:id="pfPassword" styleClass="register-field" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+            <PasswordField fx:id="tfPassword" styleClass="register-field" GridPane.rowIndex="3" GridPane.columnIndex="1" />
 
             <!-- Кнопка "Сохранить" -->
             <Button text="Сохранить"

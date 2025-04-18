@@ -128,4 +128,9 @@ public class OrderFormController implements Initializable {
         mainFormLoader.loadMainForm();
 
     }
+
+    @FXML
+    private void goToMainForm() {
+        mainFormLoader.loadMainForm();
+    }
 }

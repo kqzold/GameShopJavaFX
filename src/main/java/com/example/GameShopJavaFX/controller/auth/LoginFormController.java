@@ -23,7 +23,7 @@ public class LoginFormController {
     private final AppCustomerServiceImpl appCustomerService;
     private final LoginFormLoader formLoader;
 
-    public LoginFormController(AppCustomerServiceImpl appCustomerService, LoginFormLoader formLoader) {
+    public LoginFormController( AppCustomerServiceImpl appCustomerService, LoginFormLoader formLoader) {
         this.appCustomerService = appCustomerService;
         this.formLoader = formLoader;
     }

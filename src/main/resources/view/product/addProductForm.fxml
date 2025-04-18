@@ -53,7 +53,7 @@
 
     <!-- Блок с кнопками -->
     <HBox spacing="20" alignment="CENTER" styleClass="addproduct-buttons">
-        <Button text="Добавить" onAction="#add" styleClass="addproduct-button"/>
+        <Button text="Добавить" onAction="#addProduct" styleClass="addproduct-button"/>
         <Button text="Возврат на главную" onAction="#goToMainForm" styleClass="addproduct-button"/>
     </HBox>
 

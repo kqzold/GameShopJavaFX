@@ -9,7 +9,7 @@
 <?import java.net.URL?>
 <VBox xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.GameShopJavaFX.controller.CatalogFormController"
+      fx:controller="com.example.GameShopJavaFX.controller.catalog.CatalogFormController"
       alignment="CENTER"
       spacing="0"
       prefHeight="1000.0"
@@ -39,7 +39,7 @@
     </MenuBar>
 
     <!-- Основная область: FlowPane, где будут карточки -->
-    <FlowPane fx:id="flowPaneClothing"
+    <FlowPane fx:id="flowPaneProduct"
               hgap="10" vgap="10"
               alignment="CENTER"
               styleClass="catalog-flowpane"
