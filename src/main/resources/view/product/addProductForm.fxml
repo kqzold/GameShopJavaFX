@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +12,7 @@
 
 <?import javafx.scene.layout.HBox?>
 <?import java.net.URL?>
-<VBox fx:id="vbProductFormRoot" prefHeight="380.0" prefWidth="630.0"
+<VBox fx:id="vbProductFormRoot" prefHeight="500.0" prefWidth="700.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.GameShopJavaFX.controller.product.AddProductFormController"
@@ -23,32 +24,49 @@
     </stylesheets>
 
     <!-- Заголовок формы -->
-    <Label text="Новая модель одежды" styleClass="addclothing-title">
+    <Label text="Добавить новый продукт" styleClass="addclothing-title">
         <font>
             <Font size="20.0"/>
         </font>
     </Label>
 
-    <!-- Основной контейнер для полей ввода с использованием GridPane для симметрии -->
+    <!-- Основной контейнер для полей ввода с использованием GridPane -->
     <GridPane hgap="15" vgap="15" alignment="CENTER" styleClass="addproduct-grid">
         <padding>
             <Insets top="10" right="20" bottom="10" left="20"/>
         </padding>
+
         <!-- Название -->
         <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="addproduct-label"/>
         <TextField fx:id="tfNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="addproduct-field"/>
 
-        <!-- Размер -->
-        <Label text="Категория:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="addproduct-label"/>
-        <TextField fx:id="tfCategoryField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+        <!-- Категория -->
+        <Label text="Категория:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <TextField fx:id="tfCategoryField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+
+        <!-- Платформа -->
+        <Label text="Платформа:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <TextField fx:id="tfPlatformField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+
+        <!-- Издатель -->
+        <Label text="Издатель:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <TextField fx:id="tfPublisherField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+
+        <!-- Разработчик -->
+        <Label text="Разработчик:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <TextField fx:id="tfDeveloperField" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+
+        <!-- Дата выхода -->
+        <Label text="Дата выхода:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <DatePicker fx:id="dpReleaseDate" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="addproduct-field"/>
 
         <!-- Количество -->
-        <Label text="Количество:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="addproduct-label"/>
-        <TextField fx:id="tfQuantityField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+        <Label text="Количество:" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <TextField fx:id="tfQuantityField" GridPane.rowIndex="6" GridPane.columnIndex="1" styleClass="addproduct-field"/>
 
         <!-- Цена -->
-        <Label text="Цена:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="addclothing-label"/>
-        <TextField fx:id="tfPriceField" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="addclothing-field"/>
+        <Label text="Цена:" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="addproduct-label"/>
+        <TextField fx:id="tfPriceField" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="addproduct-field"/>
     </GridPane>
 
     <!-- Блок с кнопками -->

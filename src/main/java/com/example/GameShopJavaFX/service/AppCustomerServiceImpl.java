@@ -4,70 +4,76 @@ import com.example.GameShopJavaFX.context.CurrentCustomerContext;
 import com.example.GameShopJavaFX.interfaces.AppCustomerService;
 import com.example.GameShopJavaFX.model.Customer;
 import com.example.GameShopJavaFX.repository.CustomerRepository;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import javafx.collections.*;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class AppCustomerServiceImpl implements AppCustomerService {
 
     private final CustomerRepository customerRepository;
-    private final PasswordEncoder passwordEncoder;
     private final CurrentCustomerContext currentCustomerContext;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    public enum Role {
+    public enum ROLES {
         USER,
         ADMIN,
         MANAGER
     }
 
-    public AppCustomerServiceImpl(CustomerRepository customerRepository, PasswordEncoder passwordEncoder, CurrentCustomerContext currentCustomerContext) {
+    public AppCustomerServiceImpl(CustomerRepository customerRepository, CurrentCustomerContext currentCustomerContext) {
         this.customerRepository = customerRepository;
-        this.passwordEncoder = passwordEncoder;
         this.currentCustomerContext = currentCustomerContext;
         initSuperUser();
     }
 
     @Override
     public void initSuperUser() {
-        if (customerRepository.count() > 0) return;
+        if (customerRepository.count() > 0) {
+            return;
+        }
 
         Customer admin = new Customer();
         admin.setName("admin");
-        admin.setPassword(passwordEncoder.encode("123")); // Зашифрованный пароль
+        admin.setPassword("12345678"); // Зашифрованный пароль
         admin.setEmail("admin@gmail.com");
-        admin.getRoles().add(Role.ADMIN.name());
-        admin.getRoles().add(Role.MANAGER.name());
-        admin.getRoles().add(Role.USER.name());
+        admin.setAddress("Default Admin Address");
+        admin.setBalance(0.0);
+        admin.getRoles().add(ROLES.ADMIN.toString());
+        admin.getRoles().add(ROLES.MANAGER.toString());
+        admin.getRoles().add(ROLES.USER.toString());
 
         customerRepository.save(admin);
     }
 
     @Override
-    public Optional<Customer> add(Customer customer) {
-        if (customer == null || customer.getName() == null || customer.getName().isBlank()) {
+    public Optional<Customer> add(Customer user) {
+        if (user == null || user.getName() == null || user.getName().isBlank()) {
             throw new IllegalArgumentException("Имя пользователя не может быть пустым");
         }
 
-        if (customer.getId() == null && customerRepository.existsByName(customer.getName())) {
-            throw new IllegalArgumentException("Пользователь с логином '" + customer.getName() + "' уже существует");
+        if (user.getEmail() == null || user.getEmail().isBlank()) {
+            throw new IllegalArgumentException("Email не может быть пустым");
         }
 
-        // Шифруем пароль
-        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        if (user.getPassword() == null || user.getPassword().length() < 8) {
+            throw new IllegalArgumentException("Пароль должен содержать не менее 8 символов");
+        }
 
-        return Optional.of(customerRepository.save(customer));
+        if (user.getBalance() < 0) {
+            throw new IllegalArgumentException("Баланс не может быть отрицательным");
+        }
+
+        if (user.getId() == null && customerRepository.existsByName(user.getName())) {
+            throw new IllegalArgumentException("Пользователь с логином '" + user.getName() + "' уже существует");
+        }
+
+        // Устанавливаем начальное значение баланса, если не указано
+        if (user.getBalance() == 0) {
+            user.setBalance(0.0);
+        }
+
+        return Optional.of(customerRepository.save(user));
     }
 
     @Override

@@ -26,6 +26,12 @@ public class CardProductFormLoader {
     }
 
     public void loadUserOrderForm(Product product) {
+        if (product == null || product.getQuantity() == 0) {
+            // Проверяем наличие продукта или его доступность
+            System.out.println("Невозможно загрузить форму заказа: товар отсутствует.");
+            return;
+        }
+
         FXMLLoader fxmlLoader = springFXMLLoader.load("/view/card/CardProduct.fxml");
         Parent root;
         try {

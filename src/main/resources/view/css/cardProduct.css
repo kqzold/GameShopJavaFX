@@ -1,4 +1,4 @@
-.clothing-card-root {
+.product-card-root {
     -fx-background-color: #ffffff;
     -fx-background-radius: 8;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
@@ -6,18 +6,18 @@
     -fx-alignment: CENTER;
 }
 
-.clothing-card-name {
+.product-card-name {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: #333;
 }
 
-.clothing-card-info {
+.product-card-info {
     -fx-font-size: 14px;
     -fx-text-fill: #666;
 }
 
-.clothing-card-button {
+.product-card-button {
     -fx-background-color: #457b9d;
     -fx-text-fill: white;
     -fx-background-radius: 4;
@@ -27,6 +27,6 @@
     -fx-padding: 6 10 6 10;
 }
 
-.clothing-card-button:hover {
+.product-card-button:hover {
     -fx-background-color: #1d3557;
 }

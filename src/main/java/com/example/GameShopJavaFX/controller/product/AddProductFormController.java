@@ -5,10 +5,13 @@ import com.example.GameShopJavaFX.model.Product;
 import com.example.GameShopJavaFX.tool.loader.product.AddProductFormLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Component
 public class AddProductFormController implements Initializable {
@@ -28,6 +31,18 @@ public class AddProductFormController implements Initializable {
     @FXML
     private TextField tfQuantityField;
 
+    @FXML
+    private TextField tfPlatformField;
+
+    @FXML
+    private TextField tfPublisherField;
+
+    @FXML
+    private TextField tfDeveloperField;
+
+    @FXML
+    private DatePicker dpReleaseDate;
+
     public AddProductFormController(AddProductFormLoader formLoader, ProductService productService) {
         this.formLoader = formLoader;
         this.productService = productService;
@@ -40,14 +55,17 @@ public class AddProductFormController implements Initializable {
 
     @FXML
     public void addProduct() {
-        String name = tfNameField.getText().trim();
-        String category = tfCategoryField.getText().trim();
+        String title = tfNameField.getText().trim();
+        String genre = tfCategoryField.getText().trim();
+        String platform = tfPlatformField.getText().trim();
+        String publisher = tfPublisherField.getText().trim();
+        String developer = tfDeveloperField.getText().trim();
         String quantityStr = tfQuantityField.getText().trim();
         String priceStr = tfPriceField.getText().trim();
+        LocalDate releaseDate = dpReleaseDate.getValue();
 
-        if (name.isEmpty() || category.isEmpty() || quantityStr.isEmpty() || priceStr.isEmpty()) {
-            // Можно показать сообщение об ошибке через Alert
-            System.out.println("Пожалуйста, заполните все поля.");
+        if (title.isEmpty() || genre.isEmpty() || quantityStr.isEmpty() || priceStr.isEmpty()) {
+            showAlert("Ошибка", "Пожалуйста, заполните все обязательные поля.");
             return;
         }
 
@@ -55,18 +73,33 @@ public class AddProductFormController implements Initializable {
             int quantity = Integer.parseInt(quantityStr);
             BigDecimal price = new BigDecimal(priceStr);
 
+            if (price.compareTo(BigDecimal.ZERO) <= 0) {
+                showAlert("Ошибка", "Цена должна быть положительной.");
+                return;
+            }
+
             Product product = new Product();
-            product.setName(name);
-            product.setCategory(category);
+            product.setTitle(title);
+            product.setGenre(genre);
+            product.setPlatform(platform);
+            product.setPublisher(publisher);
+            product.setDeveloper(developer);
             product.setQuantity(quantity);
             product.setPrice(price);
+            product.setReleaseDate(releaseDate);
 
             productService.add(product);
             formLoader.loadMainForm();
         } catch (NumberFormatException e) {
-            System.out.println("Некорректный формат количества или цены.");
-            // Можно заменить на Alert или логирование
+            showAlert("Ошибка", "Некорректный формат количества или цены.");
         }
+    }
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     @FXML

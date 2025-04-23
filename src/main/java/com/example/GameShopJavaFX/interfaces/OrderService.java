@@ -3,17 +3,18 @@ package com.example.GameShopJavaFX.interfaces;
 import com.example.GameShopJavaFX.model.Order;
 import javafx.collections.ObservableList;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
 public interface OrderService extends AppService<Order> {
     ObservableList<Order> getAllOrders();
 
-    Double calculateRevenueForDay(LocalDate day);
+    BigDecimal calculateRevenueForDay(LocalDate day);
 
-    Double calculateRevenueForMonth(int year, int month);
+    BigDecimal calculateRevenueForMonth(int year, int month);
 
-    Double calculateRevenueForYear(int year);
+    BigDecimal calculateRevenueForYear(int year);
 
     List<Object[]> getSalesRatingAllTime();
     List<Object[]> getSalesRatingByMonth(int year, int month);

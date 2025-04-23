@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
 
-<VBox fx:id="vbCustomerFormRoot" prefHeight="400.0" prefWidth="630.0"
+<VBox fx:id="vbCustomerFormRoot" prefHeight="450.0" prefWidth="650.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.GameShopJavaFX.controller.customer.AddCustomerFormController"
@@ -29,26 +29,30 @@
         </font>
     </Label>
 
+    <!-- Информационное сообщение -->
+    <Label fx:id="infoLabel" text="" styleClass="addcustomer-info"/>
+
     <!-- Основной контейнер для полей ввода -->
     <GridPane hgap="15" vgap="15" alignment="CENTER" styleClass="addcustomer-grid">
         <padding>
             <Insets top="10" right="20" bottom="10" left="20"/>
         </padding>
+
         <!-- Логин -->
-        <Label text="Логин:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
-        <TextField fx:id="nameField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
+        <Label text="Логин:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
+        <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
 
         <!-- Email -->
         <Label text="Почта:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
         <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
 
         <!-- Пароль -->
-        <Label text="Пароль:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
-        <PasswordField fx:id="passwordField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
+        <Label text="Пароль:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
+        <PasswordField fx:id="passwordField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
 
         <!-- Адрес -->
-        <Label text="Адрес:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
-        <TextField fx:id="addressField" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
+        <Label text="Адрес:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
+        <TextField fx:id="addressField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="addcustomer-field"/>
 
         <!-- Баланс -->
         <Label text="Баланс:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="addcustomer-label"/>
@@ -57,8 +61,8 @@
 
     <!-- Блок с кнопками -->
     <HBox spacing="20" alignment="CENTER" styleClass="addcustomer-buttons">
-        <Button text="Добавить" onAction="#addCustomer" styleClass="addcustomer-button"/>
-        <Button text="Возврат на главную" onAction="#goToMainForm" styleClass="addcustomer-button"/>
+        <Button fx:id="saveButton" text="Добавить" styleClass="addcustomer-button"/>
+        <Button fx:id="cancelButton" text="Возврат на главную" styleClass="addcustomer-button"/>
     </HBox>
 
     <!-- Общие отступы у корневого контейнера -->

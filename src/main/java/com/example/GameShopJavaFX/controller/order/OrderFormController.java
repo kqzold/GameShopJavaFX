@@ -118,7 +118,7 @@ public class OrderFormController implements Initializable {
         selectedCustomer.setBalance(selectedCustomer.getBalance() - totalCost);
         selectedProduct.setQuantity(selectedProduct.getQuantity() - orderQuantity);
 
-        Order order = new Order(selectedCustomer, selectedProduct, orderQuantity, totalCost);
+        Order order = new Order(selectedCustomer, selectedProduct, orderQuantity, BigDecimal.valueOf(totalCost));
         orderService.add(order);
 
         productService.add(selectedProduct);

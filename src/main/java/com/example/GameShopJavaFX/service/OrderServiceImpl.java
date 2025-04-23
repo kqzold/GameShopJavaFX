@@ -3,16 +3,12 @@ package com.example.GameShopJavaFX.service;
 import com.example.GameShopJavaFX.interfaces.OrderService;
 import com.example.GameShopJavaFX.model.Order;
 import com.example.GameShopJavaFX.repository.OrderRepository;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.YearMonth;
-import java.util.List;
-import java.util.Optional;
+import java.math.*;
+import java.time.*;
+import java.util.*;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -25,6 +21,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Optional<Order> add(Order order) {
+        // Проверка доступности продукта на складе
+        if (order.getProduct().getQuantity() < order.getQuantity()) {
+            throw new IllegalStateException("Недостаточно товара на складе");
+        }
+
+        // Расчет общей стоимости, если она не указана
+        if (order.getTotalPrice() == null) {
+            BigDecimal totalPrice = order.getProduct().getPrice()
+                    .multiply(BigDecimal.valueOf(order.getQuantity()));
+            order.setTotalPrice(totalPrice);
+        }
+
         return Optional.of(orderRepository.save(order));
     }
 
@@ -35,27 +43,29 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Double calculateRevenueForDay(LocalDate day) {
+    public BigDecimal calculateRevenueForDay(LocalDate day) {
         LocalDateTime start = day.atStartOfDay();
         LocalDateTime end = day.atTime(LocalTime.MAX);
-        return orderRepository.calculateRevenueBetween(start, end);
+        Double revenue = orderRepository.calculateRevenueBetween(start, end);
+        return revenue != null ? BigDecimal.valueOf(revenue).setScale(2, RoundingMode.HALF_UP) : BigDecimal.ZERO;
     }
 
-
     @Override
-    public Double calculateRevenueForMonth(int year, int month) {
+    public BigDecimal calculateRevenueForMonth(int year, int month) {
         LocalDateTime start = LocalDateTime.of(year, month, 1, 0, 0);
         YearMonth yearMonth = YearMonth.of(year, month);
         LocalDate endOfMonth = yearMonth.atEndOfMonth();
         LocalDateTime end = endOfMonth.atTime(LocalTime.MAX);
-        return orderRepository.calculateRevenueBetween(start, end);
+        Double revenue = orderRepository.calculateRevenueBetween(start, end);
+        return revenue != null ? BigDecimal.valueOf(revenue).setScale(2, RoundingMode.HALF_UP) : BigDecimal.ZERO;
     }
 
     @Override
-    public Double calculateRevenueForYear(int year) {
+    public BigDecimal calculateRevenueForYear(int year) {
         LocalDateTime start = LocalDateTime.of(year, 1, 1, 0, 0);
         LocalDateTime end = LocalDateTime.of(year, 12, 31, 23, 59, 59);
-        return orderRepository.calculateRevenueBetween(start, end);
+        Double revenue = orderRepository.calculateRevenueBetween(start, end);
+        return revenue != null ? BigDecimal.valueOf(revenue).setScale(2, RoundingMode.HALF_UP) : BigDecimal.ZERO;
     }
 
     @Override

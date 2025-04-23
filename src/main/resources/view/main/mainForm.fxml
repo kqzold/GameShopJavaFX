@@ -21,9 +21,13 @@
             <columns>
                 <TableColumn fx:id="tcId" prefWidth="40.0" text="ID" />
                 <TableColumn fx:id="tcName" prefWidth="97.0" text="Название" />
+                <TableColumn fx:id="tcGenre" prefWidth="200.0" text="Жанр" />
+                <TableColumn fx:id="tcDeveloper" prefWidth="150.0" text="Разработчик" />
+                <TableColumn fx:id="tcPublisher" prefWidth="150.0" text="Издатель" />
+                <TableColumn fx:id="tcReleaseDate" prefWidth="100.0" text="Дата выхода" />
+                <TableColumn fx:id="tcPlatform" prefWidth="100.0" text="Платформа" />
                 <TableColumn fx:id="tcQuantity" prefWidth="69.0" text="Всего" />
                 <TableColumn fx:id="tcPrice" prefWidth="96.0" text="Цена" />
-
             </columns>
         </TableView>
 

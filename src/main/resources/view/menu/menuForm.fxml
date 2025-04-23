@@ -23,7 +23,7 @@
                                   onAction="#showAddProductForm"
                                   styleClass="menu-item-sub"
                                   text="Добавить одежду" />
-                        <MenuItem fx:id="miShowProductList"
+                        <MenuItem fx:id="miListProducts"
                                   mnemonicParsing="false"
                                   styleClass="menu-item-sub"
                                   text="Список одежды" />
@@ -49,7 +49,7 @@
                                   onAction="#showOrderForm"
                                   styleClass="menu-item-sub"
                                   text="Оформить заказ" />
-                        <MenuItem fx:id="mishowCatalogForm"
+                        <MenuItem fx:id="miShowCatalogForm"
                                   mnemonicParsing="false"
                                   onAction="#showCatalogForm"
                                   styleClass="menu-item-sub"

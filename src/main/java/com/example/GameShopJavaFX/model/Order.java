@@ -1,6 +1,7 @@
 package com.example.GameShopJavaFX.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,32 +14,43 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    @NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
+    @Positive
     private int quantity;
 
-    private double totalPrice;
+    @NotNull
+    @Positive
+    private BigDecimal totalPrice;
 
-    private LocalDateTime orderDate;
+    private LocalDateTime orderDate = LocalDateTime.now(); // Установка значения по умолчанию
 
     public Order() {}
 
-    public Order(Customer customer, Product product, int quantity, double totalPrice) {
+    public Order(Customer customer, Product product, int quantity, BigDecimal price) {
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity must be greater than 0");
+        }
+        if (price == null || price.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Price must be greater than 0");
+        }
         this.customer = customer;
         this.product = product;
         this.quantity = quantity;
-        this.totalPrice = totalPrice;
+        this.totalPrice = calculateTotalPrice(price, quantity);
         this.orderDate = LocalDateTime.now();
     }
 
     private BigDecimal calculateTotalPrice(BigDecimal price, int quantity) {
-        return price.multiply(BigDecimal.valueOf(quantity));  // пример для вычисления цены
+        return price.multiply(BigDecimal.valueOf(quantity));
     }
 
     // Getters and Setters
@@ -59,7 +71,7 @@ public class Order {
         return quantity;
     }
 
-    public double getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
@@ -83,10 +95,9 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
-
 
     public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;

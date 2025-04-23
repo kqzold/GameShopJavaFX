@@ -1,31 +1,55 @@
 /* Корневой контейнер меню */
 .menu-root {
-    -fx-background-color: linear-gradient(to bottom, #f0f4f7, #d9e2ec);
-    -fx-padding: 10;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f8ff); /* Светлый градиент */
+    -fx-padding: 20; /* Увеличенные отступы */
+    -fx-border-color: #dcdcdc; /* Серый цвет границы */
+    -fx-border-width: 2; /* Толщина границы */
+    -fx-border-radius: 10; /* Скругленные углы */
 }
 
 /* Стили для MenuBar */
 .menu-bar {
-    -fx-background-color: transparent;
+    -fx-background-color: #ffffff; /* Белый фон */
+    -fx-border-color: #bdc3c7; /* Легкая серая граница */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-border-radius: 6; /* Скругленные углы */
+    -fx-padding: 8; /* Внутренний отступ */
 }
 
 /* Основные пункты меню */
 .menu-item {
-    -fx-text-fill: #333;
-    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* Темно-синий цвет текста */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-size: 16px; /* Увеличенный размер шрифта */
+    -fx-font-family: "Arial"; /* Шрифт Arial */
+    -fx-padding: 5 10; /* Внутренние отступы */
+    -fx-cursor: hand; /* Указатель при наведении */
+}
+
+.menu-item:hover {
+    -fx-background-color: #3498db; /* Синий фон при наведении */
+    -fx-text-fill: white; /* Белый текст при наведении */
+    -fx-border-radius: 4; /* Скругленные углы */
 }
 
 /* Подпункты меню */
 .menu-item-sub {
-    -fx-text-fill: #457b9d;
+    -fx-text-fill: #2980b9; /* Темно-синий цвет текста */
+    -fx-font-size: 14px; /* Уменьшенный размер шрифта */
+    -fx-padding: 3 8; /* Отступы */
+}
+
+.menu-item-sub:hover {
+    -fx-background-color: #5dade2; /* Светло-синий фон при наведении */
+    -fx-text-fill: white; /* Белый текст */
+    -fx-border-radius: 3; /* Скругленные углы */
 }
 
 /* Дополнительная информационная надпись */
 .menu-info {
-    -fx-text-fill: #333;
-    -fx-font-size: 14px;
-    -fx-padding: 5 0 0 0;
+    -fx-text-fill: #7f8c8d; /* Серо-синий цвет текста */
+    -fx-font-size: 14px; /* Размер шрифта */
+    -fx-font-family: "Verdana"; /* Шрифт Verdana */
+    -fx-padding: 10 0 0 0; /* Отступ сверху */
+    -fx-font-style: italic; /* Курсив */
 }
-
-
-

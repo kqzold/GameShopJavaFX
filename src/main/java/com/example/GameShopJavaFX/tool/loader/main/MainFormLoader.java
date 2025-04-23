@@ -45,13 +45,12 @@ public class MainFormLoader {
         try {
             root = fxmlLoader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Не удалось загрузить главную форму", e);
+            throw new RuntimeException("Не удалось загрузить /main/mainForm.fxml", e);
         }
-
         Scene scene = new Scene(root);
         Stage primaryStage = getPrimaryStage();
         primaryStage.setScene(scene);
-        primaryStage.setTitle("GameShop главная форма");
+        primaryStage.setTitle("Clothing_StoreJavaFX магазин верхней одежды");
         primaryStage.centerOnScreen();
         primaryStage.show();
     }

@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -142,11 +143,11 @@ public class RevenueFormController implements Initializable {
                 }
                 int day = Integer.parseInt(dayStr);
                 LocalDate date = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonthValue(), day);
-                Double result = orderService.calculateRevenueForDay(date);
+                BigDecimal result = orderService.calculateRevenueForDay(date);
                 if (result == null) {
                     lblRevenue.setText("За " + date + " не было покупок.");
                 } else {
-                    revenue = result;
+                    revenue = result.doubleValue();
                     lblRevenue.setText("Выручка за " + date + ": " + revenue);
                 }
             } else if (selectedRadioButton == monthRadioButton) {
@@ -159,11 +160,11 @@ public class RevenueFormController implements Initializable {
                 int month = Integer.parseInt(monthStr);
                 int year = Integer.parseInt(yearStr);
                 LocalDate date = LocalDate.of(year, month, 1);
-                Double result = orderService.calculateRevenueForMonth(year, month);
+                BigDecimal result = orderService.calculateRevenueForMonth(year, month);
                 if (result == null) {
                     lblRevenue.setText("За " + date + " не было покупок.");
                 } else {
-                    revenue = result;
+                    revenue = result.doubleValue();
                     lblRevenue.setText("Выручка за " + date + ": " + revenue);
                 }
             } else if (selectedRadioButton == yearRadioButton) {
@@ -175,11 +176,11 @@ public class RevenueFormController implements Initializable {
                 }
                 int month = Integer.parseInt(monthStr);
                 int year = Integer.parseInt(yearStr);
-                Double result = orderService.calculateRevenueForMonth(year, month);
+                BigDecimal result = orderService.calculateRevenueForMonth(year, month);
                 if (result == null) {
                     lblRevenue.setText("За " + month + "." + year + " не было покупок.");
                 } else {
-                    revenue = result;
+                    revenue = result.doubleValue();
                     lblRevenue.setText("Доход за " + month + "." + year + ": " + revenue);
                 }
             }

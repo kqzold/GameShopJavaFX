@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,51 +11,67 @@
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
 
-<VBox fx:id="vbProductFormRoot" prefHeight="380.0" prefWidth="630.0"
+<VBox fx:id="vbProductFormRoot" prefHeight="500.0" prefWidth="700.0"
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.GameShopJavaFX.controller.product.EditProductFormController"
-      alignment="CENTER" spacing="20" styleClass="addproduct-root">
+      alignment="CENTER" spacing="20" styleClass="editproduct-root">
 
     <!-- Подключаем CSS-файл -->
     <stylesheets>
-        <URL value="@../css/addClothing.css"/>
+        <URL value="@../css/editProduct.css"/>
     </stylesheets>
 
     <!-- Заголовок формы -->
-    <Label text="Редактирование атрибуты одежды" styleClass="addproduct-title">
+    <Label text="Редактирование информации о продукте" styleClass="editproduct-title">
         <font>
-            <Font size="20.0"/>
+            <Font size="22.0"/>
         </font>
     </Label>
 
-    <!-- Основной контейнер для полей ввода с использованием GridPane для симметрии -->
-    <GridPane hgap="15" vgap="15" alignment="CENTER" styleClass="addproduct-grid">
+    <!-- Основной контейнер для полей ввода с использованием GridPane -->
+    <GridPane hgap="15" vgap="15" alignment="CENTER" styleClass="editproduct-grid">
         <padding>
             <Insets top="10" right="20" bottom="10" left="20"/>
         </padding>
+
         <!-- Название -->
-        <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="addproduct-label"/>
-        <TextField fx:id="tfNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+        <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfTitleField" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="editproduct-field"/>
 
+        <!-- Жанр -->
+        <Label text="Жанр:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfGenreField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="editproduct-field"/>
 
-        <!-- Размер -->
-        <Label text="Размер:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="addproduct-label"/>
-        <TextField fx:id="tfCategoryField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+        <!-- Платформа -->
+        <Label text="Платформа:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfPlatformField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="editproduct-field"/>
+
+        <!-- Издатель -->
+        <Label text="Издатель:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfPublisherField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="editproduct-field"/>
+
+        <!-- Разработчик -->
+        <Label text="Разработчик:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfDeveloperField" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="editproduct-field"/>
+
+        <!-- Дата релиза -->
+        <Label text="Дата релиза:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfReleaseDateField" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="editproduct-field"/>
 
         <!-- Количество -->
-        <Label text="Количество:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="addproduct-label"/>
-        <TextField fx:id="tfQuantityField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+        <Label text="Количество:" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfQuantityField" GridPane.rowIndex="6" GridPane.columnIndex="1" styleClass="editproduct-field"/>
 
         <!-- Цена -->
-        <Label text="Цена:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="addproduct-label"/>
-        <TextField fx:id="tfPriceField" GridPane.rowIndex="5" GridPane.columnIndex="1" styleClass="addproduct-field"/>
+        <Label text="Цена:" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="editproduct-label"/>
+        <TextField fx:id="tfPriceField" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="editproduct-field"/>
     </GridPane>
 
     <!-- Блок с кнопками -->
-    <HBox spacing="20" alignment="CENTER" styleClass="addproduct-buttons">
-        <Button text="Сохранить" onAction="#goEdit" styleClass="addproduct-button"/>
-        <Button text="Возврат на главную" onAction="#goToMainForm" styleClass="addproduct-button"/>
+    <HBox spacing="20" alignment="CENTER" styleClass="editproduct-buttons">
+        <Button text="Сохранить" onAction="#goEdit" styleClass="editproduct-button"/>
+        <Button text="Возврат на главную" onAction="#goToMainForm" styleClass="editproduct-button"/>
     </HBox>
 
     <!-- Общие отступы у корневого контейнера -->

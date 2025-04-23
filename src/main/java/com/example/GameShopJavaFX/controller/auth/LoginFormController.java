@@ -21,9 +21,10 @@ public class LoginFormController {
     private Label infoLabel;
 
     private final AppCustomerServiceImpl appCustomerService;
+
     private final LoginFormLoader formLoader;
 
-    public LoginFormController( AppCustomerServiceImpl appCustomerService, LoginFormLoader formLoader) {
+    public LoginFormController(AppCustomerServiceImpl appCustomerService, LoginFormLoader formLoader) {
         this.appCustomerService = appCustomerService;
         this.formLoader = formLoader;
     }
@@ -33,16 +34,20 @@ public class LoginFormController {
         String name = tfName.getText().trim();
         String password = tfPassword.getText().trim();
 
-        boolean success = appCustomerService.authentication(name, password);
-        if (!success) {
-            infoLabel.setText("Неверное имя пользователя или пароль");
-            return;
-        }
+        try {
+            boolean success = appCustomerService.authentication(name, password);
+            if (!success) {
+                throw new IllegalArgumentException("Неверное имя пользователя или пароль");
+            }
 
-        if (appCustomerService.getCurrentCustomer().getRoles().contains("ADMIN") || appCustomerService.getCurrentCustomer().getRoles().contains("MANAGER")) {
-            formLoader.loadMainForm();
-        } else {
-            formLoader.loadCatalogForm();
+            if (appCustomerService.getCurrentCustomer().getRoles().contains("ADMIN") ||
+                    appCustomerService.getCurrentCustomer().getRoles().contains("MANAGER")) {
+                formLoader.loadMainForm();
+            } else {
+                formLoader.loadCatalogForm();
+            }
+        } catch (IllegalArgumentException ex) {
+            infoLabel.setText(ex.getMessage());
         }
     }
 

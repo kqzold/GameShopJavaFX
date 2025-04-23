@@ -4,14 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
-
 <?import java.net.URL?>
+
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.GameShopJavaFX.controller.card.CardProductController"
       alignment="CENTER" spacing="8"
       styleClass="product-card-root"
-      prefWidth="200.0" prefHeight="250.0">
+      prefWidth="200.0" prefHeight="300.0">
 
     <stylesheets>
         <URL value="@../css/cardProduct.css"/>
@@ -21,13 +21,18 @@
     <ImageView fx:id="imgProduct" fitWidth="180.0" preserveRatio="true"/>
 
     <!-- Название товара -->
-    <Label fx:id="lblName" styleClass="product-card-name"/>
+    <Label fx:id="lblTitle" styleClass="product-card-name"/>
 
     <!-- Дополнительная информация -->
-    <Label fx:id="lblCategory" styleClass="product-card-info"/>
+    <Label fx:id="lblGenre" styleClass="product-card-info"/>
+    <Label fx:id="lblPlatform" styleClass="product-card-info"/>
     <Label fx:id="lblPrice" styleClass="product-card-info"/>
-    <Label fx:id="lblInStock" styleClass="product-card-info"/>
+    <Label fx:id="lblQuantity" styleClass="product-card-info"/>
+    <Label fx:id="lblDeveloper" styleClass="product-card-info"/>
+    <Label fx:id="lblPublisher" styleClass="product-card-info"/>
+    <Label fx:id="lblReleaseDate" styleClass="product-card-info"/>
+
 
     <!-- Кнопка "Купить" -->
-    <Button fx:id="btnBuy" text="Купить" onAction="#buyClothing" styleClass="product-card-button"/>
+    <Button fx:id="btnBuy" text="Купить" onAction="#buyProduct" styleClass="product-card-button"/>
 </VBox>

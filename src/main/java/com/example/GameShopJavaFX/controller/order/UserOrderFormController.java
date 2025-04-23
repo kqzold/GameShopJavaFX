@@ -58,9 +58,13 @@ public class UserOrderFormController implements Initializable {
         this.selectedProduct = product;
         if (product != null) {
             lblProductInfo.setText(
-                    product.getName() + ", " +
-                            "Название: " + product.getName() + ", " +
-                            "Категория: " + product.getCategory() + ", " +
+                    product.getTitle() + ", " +
+                            "Название: " + product.getTitle() + ", " +
+                            "Категория: " + product.getGenre() + ", " +
+                            "Платформа: " + product.getPlatform() + ", " +
+                            "Издатель: " + product.getPublisher() + ", " +
+                            "Разработчик: " + product.getDeveloper() + ", " +
+                            "Дата выхода: " + product.getReleaseDate() + ", " +
                             "Цена: " + product.getPrice() + ", " +
                             "Кол-во: " + product.getQuantity()
             );
@@ -119,7 +123,7 @@ public class UserOrderFormController implements Initializable {
         currentCustomer.setBalance(currentCustomer.getBalance() - totalCost);
         selectedProduct.setQuantity(selectedProduct.getQuantity() - quantity);
 
-        Order order = new Order(currentCustomer, selectedProduct, quantity, totalCost);
+        Order order = new Order(currentCustomer, selectedProduct, quantity, BigDecimal.valueOf(totalCost));
         orderService.add(order);
 
         productService.add(selectedProduct);

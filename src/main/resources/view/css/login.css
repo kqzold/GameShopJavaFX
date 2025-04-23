@@ -1,64 +1,91 @@
-/* login.css: пример простых стилей для формы логина */
-
 /* Корневой контейнер (VBox) */
 .login-root {
-    -fx-background-color: linear-gradient(to bottom, #f0f4f7, #d9e2ec);
-    -fx-padding: 20;
-    -fx-spacing: 10;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e3f2fd); /* Светлый голубой градиент */
+    -fx-padding: 30; /* Увеличенные отступы */
+    -fx-spacing: 15; /* Расстояние между элементами */
+    -fx-border-color: #bbdefb; /* Голубая граница */
+    -fx-border-width: 2; /* Толщина границы */
+    -fx-border-radius: 12; /* Скруглённые углы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5); /* Лёгкая тень */
 }
 
 /* Заголовок */
 .login-title {
-    -fx-text-fill: #333;
-    -fx-font-weight: bold;
+    -fx-text-fill: #0d47a1; /* Глубокий синий */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-size: 22px; /* Увеличенный размер шрифта */
+    -fx-font-family: "Arial"; /* Шрифт Arial */
+    -fx-padding: 10 0; /* Отступы сверху и снизу */
+    -fx-text-alignment: center; /* Центрирование текста */
 }
 
 /* Текст ошибок или уведомлений */
 .login-info {
-    -fx-text-fill: #e63946;  /* Красный цвет */
+    -fx-text-fill: #d32f2f;  /* Ярко-красный цвет */
+    -fx-font-size: 14px; /* Размер текста */
+    -fx-font-family: "Verdana"; /* Шрифт Verdana */
+    -fx-padding: 5 0; /* Отступ сверху */
+    -fx-font-style: italic; /* Курсив */
 }
 
 /* Фон формы (GridPane) */
 .login-form-box {
-    -fx-background-color: #fff;
-    -fx-background-radius: 8;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+    -fx-background-color: #ffffff; /* Белый фон */
+    -fx-background-radius: 12; /* Скруглённые углы */
+    -fx-border-color: #90caf9; /* Светло-голубая граница */
+    -fx-border-width: 2; /* Толщина границы */
+    -fx-padding: 20; /* Внутренние отступы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 4); /* Тень */
 }
 
 /* Подписи (Label) рядом с полями ввода */
 .login-label {
-    -fx-font-size: 14px;
-    -fx-text-fill: #555;
+    -fx-font-size: 16px; /* Увеличенный размер шрифта */
+    -fx-text-fill: #1a237e; /* Темно-синий текст */
+    -fx-font-family: "Verdana"; /* Шрифт Verdana */
+    -fx-padding: 5 0; /* Отступы сверху и снизу */
 }
 
 /* Поля ввода */
 .login-field {
-    -fx-background-color: #f9f9f9;
-    -fx-border-color: #ccc;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-padding: 4 8 4 8;
+    -fx-background-color: #f1f8e9; /* Светло-зелёный фон */
+    -fx-border-color: #aed581; /* Светло-зелёная граница */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-border-radius: 6; /* Скругление углов */
+    -fx-background-radius: 6; /* Скругление фона */
+    -fx-padding: 10 12; /* Внутренние отступы */
+    -fx-font-size: 14px; /* Размер текста */
+    -fx-font-family: "Courier New"; /* Шрифт Courier New */
 }
 
 /* Кнопка "Войти" */
 .login-button {
-    -fx-background-color: #457b9d;
-    -fx-text-fill: white;
-    -fx-background-radius: 4;
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 6 20 6 20;
+    -fx-background-color: #1e88e5; /* Голубой фон */
+    -fx-text-fill: white; /* Белый текст */
+    -fx-background-radius: 8; /* Скруглённые углы */
+    -fx-border-color: #1565c0; /* Тёмно-синяя граница */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-cursor: hand; /* Указатель при наведении */
+    -fx-font-size: 16px; /* Размер текста */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-padding: 10 25; /* Внутренние отступы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 3); /* Лёгкая тень */
 }
 
 .login-button:hover {
-    -fx-background-color: #1d3557;
+    -fx-background-color: #1565c0; /* Тёмно-синий фон при наведении */
+    -fx-border-color: #0d47a1; /* Ещё более тёмная граница */
 }
 
 /* Ссылка "Нет логина? Зарегистрируйся!" */
 .login-reg-link {
-    -fx-text-fill: #1d3557;
-    -fx-underline: true;
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
+    -fx-text-fill: #0d47a1; /* Глубокий синий текст */
+    -fx-underline: true; /* Подчёркнутость текста */
+    -fx-cursor: hand; /* Указатель при наведении */
+    -fx-font-size: 14px; /* Размер текста */
+    -fx-font-family: "Tahoma"; /* Шрифт Tahoma */
+}
+
+.login-reg-link:hover {
+    -fx-text-fill: #1e88e5; /* Светло-голубой текст при наведении */
 }

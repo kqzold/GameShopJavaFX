@@ -1,10 +1,9 @@
 package com.example.GameShopJavaFX.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Customer {
@@ -14,19 +13,23 @@ public class Customer {
     private Long id;
 
     @Column(nullable = false)
+    @NotBlank(message = "Name is required")
     private String name;
 
+    @Email
+    @NotBlank(message = "Email is required")
     private String email;
+
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
+
     private String address;
 
-    @Column(nullable = false, columnDefinition = "double default 0.0")
+    @Min(value = 0, message = "Balance cannot be negative")
     private double balance;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "customer_roles", joinColumns = @JoinColumn(name = "customer_id"))
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role")
     private Set<String> roles = new HashSet<>();
 
     public Customer() {}
@@ -101,7 +104,6 @@ public class Customer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", balance=" + balance +
                 '}';

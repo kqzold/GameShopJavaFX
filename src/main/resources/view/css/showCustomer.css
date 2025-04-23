@@ -1,63 +1,74 @@
 /* Корневой контейнер */
 .showcustomer-root {
-    -fx-background-color: linear-gradient(to bottom, #f0f4f7, #d9e2ec);
-    -fx-padding: 20;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e3f2fd); /* Светлый голубой градиент */
+    -fx-padding: 30; /* Увеличенные отступы */
+    -fx-border-color: #bbdefb; /* Голубая граница */
+    -fx-border-width: 2; /* Толщина границы */
+    -fx-border-radius: 12; /* Скруглённые углы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5); /* Лёгкая тень */
 }
 
 /* Таблица */
 .showcustomer-table {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 8;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 8;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
+    -fx-background-color: #ffffff; /* Белый фон */
+    -fx-background-radius: 12; /* Скруглённые углы */
+    -fx-border-color: #90caf9; /* Светло-голубая граница */
+    -fx-border-width: 2; /* Толщина границы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 4); /* Тень */
 }
 
 /* Заголовки таблицы */
 .showcustomer-table .column-header-background {
-    -fx-background-color: #457b9d;
-    -fx-background-radius: 8 8 0 0;
+    -fx-background-color: linear-gradient(to right, #1e88e5, #1565c0); /* Градиент синего */
+    -fx-background-radius: 12 12 0 0; /* Скругление верхних углов */
 }
 
 .showcustomer-table .column-header,
 .showcustomer-table .filler {
-    -fx-alignment: CENTER;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
+    -fx-alignment: CENTER; /* Центрирование текста */
+    -fx-text-fill: white; /* Белый цвет текста */
+    -fx-font-size: 16px; /* Увеличенный шрифт */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-family: "Arial"; /* Шрифт Arial */
 }
 
 /* Ячейки таблицы */
 .showcustomer-table .table-column {
-    -fx-alignment: CENTER;
-    -fx-font-size: 13px;
+    -fx-alignment: CENTER; /* Центрирование содержимого */
+    -fx-font-size: 14px; /* Размер текста */
+    -fx-text-fill: #34495e; /* Темно-серый текст */
+    -fx-font-family: "Verdana"; /* Шрифт Verdana */
 }
 
 /* Общий контейнер кнопок */
 .showcustomer-buttonbox {
-    -fx-alignment: CENTER;
-    -fx-spacing: 10;
-    -fx-padding: 10 0 0 0; /* Отступ сверху для отделения от таблицы */
+    -fx-alignment: center; /* Центрирование кнопок */
+    -fx-spacing: 20; /* Расстояние между кнопками */
+    -fx-padding: 15 0 0 0; /* Увеличенный отступ сверху */
 }
 
 /* Вложенный HBox для кнопки редактирования */
 .showcustomer-editbox {
-    -fx-alignment: CENTER;
-    -fx-spacing: 10;
+    -fx-alignment: center; /* Центрирование */
+    -fx-spacing: 15; /* Расстояние между элементами */
 }
 
 /* Кнопки */
 .showcustomer-button {
-    -fx-background-color: #457b9d;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 4;
-    -fx-cursor: hand;
-    -fx-padding: 6 10 6 10;
-    -fx-min-width: 150px; /* одинаковая минимальная ширина */
+    -fx-background-color: #1e88e5; /* Голубой фон */
+    -fx-text-fill: white; /* Белый текст */
+    -fx-font-size: 16px; /* Размер текста */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-background-radius: 8; /* Скруглённые углы */
+    -fx-border-color: #1565c0; /* Тёмно-синяя граница */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-cursor: hand; /* Указатель при наведении */
+    -fx-padding: 10 20; /* Увеличенные отступы */
+    -fx-min-width: 160px; /* Единая минимальная ширина */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 3); /* Лёгкая тень */
 }
 
 .showcustomer-button:hover {
-    -fx-background-color: #1d3557;
+    -fx-background-color: #1565c0; /* Более тёмный синий фон */
+    -fx-border-color: #0d47a1; /* Ещё более тёмная граница */
 }

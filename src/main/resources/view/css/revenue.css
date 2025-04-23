@@ -1,62 +1,78 @@
-/* revenue.css */
-
 /* Корневой контейнер: задаёт плавный градиентный фон и отступы */
 .revenue-root {
-    -fx-background-color: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
-    -fx-padding: 20;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #d6eaf8); /* Светлый голубой градиент */
+    -fx-padding: 30; /* Увеличенные отступы */
+    -fx-border-color: #aed6f1; /* Голубая граница */
+    -fx-border-width: 2; /* Толщина границы */
+    -fx-border-radius: 12; /* Скруглённые углы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5); /* Лёгкая тень */
 }
 
 /* Заголовок формы: стиль для заголовка "Доход магазина" */
 .revenue-title {
-    -fx-text-fill: #2c3e50;
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
+    -fx-text-fill: #154360; /* Глубокий синий цвет */
+    -fx-font-size: 28px; /* Увеличенный размер шрифта */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-family: "Arial"; /* Шрифт Arial */
+    -fx-padding: 10 0 20 0; /* Отступы сверху и снизу */
+    -fx-text-alignment: center; /* Центрирование текста */
 }
 
 /* Радиокнопки для выбора периода: увеличенный шрифт и темный цвет текста */
 .revenue-radio {
-    -fx-font-size: 16px;
-    -fx-text-fill: #34495e;
+    -fx-font-size: 16px; /* Размер текста */
+    -fx-text-fill: #1c2833; /* Темно-синий текст */
+    -fx-font-family: "Verdana"; /* Шрифт Verdana */
 }
 
 /* Метка для подписи поля ввода периода */
 .revenue-label {
-    -fx-font-size: 16px;
-    -fx-text-fill: #2c3e50;
+    -fx-font-size: 16px; /* Размер текста */
+    -fx-text-fill: #1a5276; /* Синий цвет текста */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-family: "Tahoma"; /* Шрифт Tahoma */
+    -fx-padding: 5 0; /* Отступы сверху и снизу */
 }
 
 /* Поле ввода: светлый фон, закругленные углы, отступы и рамка */
 .revenue-field {
-    -fx-font-size: 14px;
-    -fx-background-color: #ecf0f1;
-    -fx-text-fill: #2c3e50;
-    -fx-border-color: #bdc3c7;
-    -fx-border-width: 1;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-padding: 5 10 5 10;
+    -fx-font-size: 14px; /* Размер текста */
+    -fx-background-color: #f4f6f7; /* Светло-серый фон */
+    -fx-text-fill: #34495e; /* Темно-синий текст */
+    -fx-border-color: #bfc9ca; /* Серо-голубая граница */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-border-radius: 6; /* Скруглённые углы */
+    -fx-background-radius: 6; /* Скруглённые углы фона */
+    -fx-padding: 8 12; /* Внутренние отступы */
+    -fx-font-family: "Courier New"; /* Шрифт Courier New */
 }
 
 /* Кнопки: насыщенный синий фон, белый текст, закругленные углы и легкая тень */
 .revenue-button {
-    -fx-background-color: #2980b9;
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 4;
-    -fx-cursor: hand;
-    -fx-padding: 8 16 8 16;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 0, 2);
+    -fx-background-color: #1e88e5; /* Голубой фон */
+    -fx-text-fill: #ffffff; /* Белый текст */
+    -fx-font-size: 16px; /* Размер текста */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-background-radius: 8; /* Скруглённые углы */
+    -fx-border-color: #1565c0; /* Тёмно-синяя граница */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-cursor: hand; /* Указатель при наведении */
+    -fx-padding: 10 20; /* Внутренние отступы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 3); /* Лёгкая тень */
 }
 
 /* Эффект при наведении на кнопку */
 .revenue-button:hover {
-    -fx-background-color: #1c6692;
+    -fx-background-color: #1565c0; /* Более тёмный синий фон при наведении */
+    -fx-border-color: #0d47a1; /* Ещё более тёмная граница */
 }
 
 /* Результат расчёта дохода: крупный, зелёный текст */
 .revenue-result {
-    -fx-font-size: 18px;
-    -fx-text-fill: #27ae60;
-    -fx-font-weight: bold;
+    -fx-font-size: 20px; /* Увеличенный размер текста */
+    -fx-text-fill: #2ecc71; /* Ярко-зелёный текст */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-family: "Tahoma"; /* Шрифт Tahoma */
+    -fx-padding: 10 0; /* Отступы сверху и снизу */
+    -fx-text-alignment: center; /* Центрирование текста */
 }

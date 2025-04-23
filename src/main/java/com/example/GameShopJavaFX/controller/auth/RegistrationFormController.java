@@ -38,7 +38,7 @@ public class RegistrationFormController {
             customer.setName(tfName.getText().trim());
             customer.setEmail(tfEmail.getText().trim());
             customer.setPassword(tfPassword.getText().trim());
-            customer.getRoles().add(AppCustomerServiceImpl.Role.USER.toString());
+            customer.getRoles().add(AppCustomerServiceImpl.ROLES.USER.toString());
 
             appCustomerService.add(customer);
 

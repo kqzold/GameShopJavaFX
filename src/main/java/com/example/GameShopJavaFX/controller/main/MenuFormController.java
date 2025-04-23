@@ -79,7 +79,9 @@ public class MenuFormController implements Initializable {
             miPlaceOrder.setVisible(false);
             return;
 
-        } else if (appCustomerService.getCurrentCustomer().getRoles().contains(AppCustomerServiceImpl.Role.ADMIN.toString())) {
+        }
+
+        if (appCustomerService.getCurrentCustomer().getRoles().contains(AppCustomerServiceImpl.ROLES.ADMIN.toString())) {
 
             mAdmin.setVisible(true);
             mUsers.setVisible(true);
@@ -94,7 +96,7 @@ public class MenuFormController implements Initializable {
             miListProducts.setVisible(true);
             miPlaceOrder.setVisible(true);
 
-        } else if (appCustomerService.getCurrentCustomer().getRoles().contains(AppCustomerServiceImpl.Role.MANAGER.toString())) {
+        } else if (appCustomerService.getCurrentCustomer().getRoles().contains(AppCustomerServiceImpl.ROLES.MANAGER.toString())) {
             mAdmin.setVisible(false);
             mUsers.setVisible(false);
             mProduct.setVisible(true);
@@ -108,7 +110,7 @@ public class MenuFormController implements Initializable {
             miListProducts.setVisible(true);
             miPlaceOrder.setVisible(true);
 
-        } else if (appCustomerService.getCurrentCustomer().getRoles().contains(AppCustomerServiceImpl.Role.USER.toString())) {
+        } else if (appCustomerService.getCurrentCustomer().getRoles().contains(AppCustomerServiceImpl.ROLES.USER.toString())) {
 
             mAdmin.setVisible(false);
             mUsers.setVisible(true);

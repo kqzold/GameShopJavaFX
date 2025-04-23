@@ -4,6 +4,7 @@ import com.example.GameShopJavaFX.interfaces.ProductService;
 import com.example.GameShopJavaFX.model.Product;
 import com.example.GameShopJavaFX.tool.loader.main.MainFormLoader;
 import com.example.GameShopJavaFX.tool.loader.product.AddProductFormLoader;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -42,6 +43,21 @@ public class MainFormController implements Initializable {
     private TableColumn<Product, Double> tcPrice;
 
     @FXML
+    private TableColumn<Product, String> tcPlatform;
+
+    @FXML
+    private TableColumn<Product, String> tcGenre;
+
+    @FXML
+    private TableColumn<Product, String> tcPublisher;
+
+    @FXML
+    private TableColumn<Product, String> tcDeveloper;
+
+    @FXML
+    private TableColumn<Product, String> tcReleaseDate;
+
+    @FXML
     private HBox EditProductHBox;
 
     public MainFormController(MainFormLoader mainFormLoader, ProductService productService, AddProductFormLoader productFormLoader) {
@@ -58,6 +74,11 @@ public class MainFormController implements Initializable {
 
         tcId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        tcPlatform.setCellValueFactory(new PropertyValueFactory<>("platform"));
+        tcPublisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+        tcDeveloper.setCellValueFactory(new PropertyValueFactory<>("developer"));
+        tcReleaseDate.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
         tcQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         tcPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
@@ -69,7 +90,7 @@ public class MainFormController implements Initializable {
     }
 
     @FXML
-    private void showEditProductForm() {
+    private void showEditProductForm(ActionEvent event) {
         Product selectedProduct = productTableView.getSelectionModel().getSelectedItem();
         if (selectedProduct != null) {
             productFormLoader.loadEditProductForm(selectedProduct);

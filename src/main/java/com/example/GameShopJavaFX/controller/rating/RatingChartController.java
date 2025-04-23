@@ -97,7 +97,7 @@ public class RatingChartController implements Initializable {
             for (Object[] row : data) {
                 Product product = (Product) row[0];
                 Long sold = (Long) row[1];
-                chartData.add(new XYChart.Data<>(product.getName(), sold != null ? sold : 0));
+                chartData.add(new XYChart.Data<>(product.getTitle(), sold != null ? sold : 0));
             }
         }
         series.setData(chartData);

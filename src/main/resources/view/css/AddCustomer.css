@@ -1,54 +1,83 @@
 /* Корневой контейнер */
 .addcustomer-root {
-    -fx-background-color: linear-gradient(to bottom, #f9fafc, #e1e8ed);
-    -fx-padding: 20;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f8ff); /* Светлый градиент */
+    -fx-padding: 30; /* Отступы по краям */
+    -fx-spacing: 20; /* Расстояние между элементами */
+    -fx-alignment: center; /* Выравнивание всех дочерних элементов */
 }
 
 /* Заголовок */
 .addcustomer-title {
-    -fx-text-fill: #333;
-    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* Темно-синий цвет текста */
+    -fx-font-size: 24px; /* Увеличенный размер шрифта */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-font-family: "Arial"; /* Шрифт */
+    -fx-padding: 10 0 20 0; /* Отступы сверху и снизу */
 }
 
-/* GridPane для полей */
+/* Сообщение об информации */
+.addcustomer-info {
+    -fx-text-fill: #e74c3c; /* Красный цвет для ошибок */
+    -fx-font-size: 16px;
+    -fx-font-style: italic;
+    -fx-padding: 5;
+}
+
+/* Основной контейнер для полей */
 .addcustomer-grid {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 8;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2);
-    -fx-padding: 15;
+    -fx-background-color: #ffffff; /* Белый фон */
+    -fx-background-radius: 12; /* Скругленные углы */
+    -fx-border-color: #dcdcdc; /* Серый цвет границы */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-padding: 20; /* Внутренние отступы */
+    -fx-hgap: 15; /* Горизонтальный интервал */
+    -fx-vgap: 15; /* Вертикальный интервал */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 5, 0, 0, 2); /* Тень */
 }
 
 /* Метки для полей */
 .addcustomer-label {
-    -fx-text-fill: #555;
+    -fx-text-fill: #34495e; /* Глубокий синий цвет текста */
     -fx-font-size: 14px;
+    -fx-font-family: "Verdana";
+    -fx-padding: 5 0;
 }
 
 /* Поля ввода */
 .addcustomer-field {
-    -fx-background-color: #f4f4f4;
-    -fx-border-color: #cccccc;
-    -fx-border-radius: 4;
-    -fx-background-radius: 4;
-    -fx-padding: 6 8 6 8;
+    -fx-background-color: #f9f9f9; /* Светло-серый фон */
+    -fx-border-color: #bdc3c7; /* Цвет границы */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-border-radius: 6; /* Скругленные границы */
+    -fx-background-radius: 6; /* Скругление углов фона */
+    -fx-padding: 8 12; /* Внутренние отступы */
+    -fx-font-size: 14px; /* Размер шрифта */
+    -fx-font-family: "Courier New"; /* Шрифт */
 }
 
 /* Кнопки */
 .addcustomer-button {
-    -fx-background-color: #457b9d;
-    -fx-text-fill: white;
-    -fx-background-radius: 4;
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 8 20 8 20;
+    -fx-background-color: #3498db; /* Синий фон */
+    -fx-text-fill: white; /* Белый текст */
+    -fx-background-radius: 6; /* Скругленные углы */
+    -fx-border-color: #2980b9; /* Цвет границы */
+    -fx-border-width: 1; /* Толщина границы */
+    -fx-cursor: hand; /* Указатель мыши */
+    -fx-font-size: 14px; /* Размер текста */
+    -fx-font-family: "Tahoma"; /* Шрифт */
+    -fx-font-weight: bold; /* Жирный текст */
+    -fx-padding: 10 25; /* Внутренние отступы */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2); /* Тень */
 }
 
 .addcustomer-button:hover {
-    -fx-background-color: #1d3557;
+    -fx-background-color: #2980b9; /* Более темный синий при наведении */
+    -fx-border-color: #1c598a; /* Цвет границы при наведении */
 }
 
 /* Блок кнопок */
 .addcustomer-buttons {
-    -fx-padding: 10;
+    -fx-padding: 15;
+    -fx-spacing: 20;
+    -fx-alignment: center;
 }
